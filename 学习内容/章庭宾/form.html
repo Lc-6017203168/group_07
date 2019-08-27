@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表单的练习</title>
+</head>
+<body>
+<h2>接下来是表单</h2>
+<hr>
+<form action="">
+    姓名<input type="text" placeholder="请输入姓名" value="张三" required readonly><!--required是不能为空  <readonly是不可修改--> <br>
+    年龄 <input type="number" placeholder="请输入年龄"  required><br>
+    邮箱 <input type="email" placeholder="请输入邮箱" value="123456@qq.com"><br>
+    密码 <input type="password" placeholder="请输入密码" value="123456"><br>
+    性别<input name="sex" type="radio" >男
+    <input name="sex" type="radio" >女 <!--radio是单选框-->
+    <input type="radio" name="sex" value="未知">未知 <br>
+    爱好 <input type="checkbox" name="hobby" value="1">lol <!--checkbox是多选-->
+    <input type="checkbox" name="hobby" value="2">看书 <!--name是赋予同一属性，进行多选一-->
+    <input type="checkbox" name="hobby" value="3">音乐
+    <input type="checkbox" name="hobby" value="4">旅游 <br>
+    个人简介: <textarea name="个人简介" id="" cols="30" rows="5"></textarea> <br> <!--rows控制行数 cols控制一行的个数-->
+    所在班级： <select >
+    <option value="1">软件一班</option>
+    <option value="2">软件二班</option>
+    <option value="3" selected>软件三班</option> <!--selected 控制默认选择-->
+    <option value="4">软件四班</option>
+</select> <br>
+    <input type="submit" value="提交"><!--提交表格-->
+</form>
+</body>
+</html>
