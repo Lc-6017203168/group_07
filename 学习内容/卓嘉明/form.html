@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表单元素</title>
+</head>
+<body>
+<h2>表单元素</h2>
+<hr>
+<form action="">
+    姓名:<input type="text" placeholder="请输入姓名" value="" required readonly><br>
+    年龄：<input type="number" placeholder="请输入年龄" value="" required><br>
+    邮箱:<input type="email" placeholder="请输入邮箱" value="" required><br>
+    密码:<input type="password" placeholder="请输入密码" required><br>
+    性别:<input name="sex" type="radio" value="男">男
+    <input name="sex" type="radio" value="女">女
+    <br>
+    爱好：
+    <input type="checkbox" name="hoobby" value="棒球">棒球
+    <input type="checkbox" name="hoobby" value="篮球">篮球
+    <input type="checkbox" name="hoobby" value="游泳">游泳
+    <input type="checkbox" name="hoobby" value="跑步">跑步
+    <br>
+    自我介绍:
+    <textarea name="introduce" id="" cols="30" rows="10" placeholder="请自我介绍一下"></textarea>
+    <br>
+    班级：
+    <select name="classID" id="">
+        <option value="1">软件一班</option>
+        <option value="2">软件二班</option>
+        <option value="3" selected>软件三班</option>
+        <option value="4">软件四班</option>
+    </select>
+    <br>
+    <input type="submit" value="提交表单">
+</form>
+</body>
+</html>
