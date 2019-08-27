@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>学员编辑</title>
+</head>
+<body>
+<h2>学员编辑</h2>
+<hr>
+<form action="">
+    <table cellspacing="10" cellpadding="0" width="960px">
+        <tr>
+            <td align="right">姓名</td>
+            <td>
+                <input type="text" name="userName" placeholder="请输入姓名" required value="章庭宾">
+            </td>
+        </tr>
+        <tr>
+            <td align="right">年龄</td>
+            <td>
+                <input type="number" name="age" placeholder="请输入年龄" required value="21">
+            </td>
+        </tr>
+        <tr>
+            <td align="right">性别</td>
+            <td>
+                <input type="radio" required value="1" name="sex" checked>男
+                <input type="radio" required value="2" name="sex">女
+            </td>
+        </tr>
+        <tr>
+            <td align="right">兴趣爱好</td>
+            <td>
+                <input type="checkbox" value="1" name="hobby" checked>看书
+                <input type="checkbox" value="2" name="hobby">游戏
+                <input type="checkbox" value="3" name="hobby" checked>运动
+            </td>
+        </tr>
+        <tr>
+            <td align="right">班级</td>
+            <td>
+                <select name="classID" required>
+                    <option value="1">软件一班</option>
+                    <option value="1">软件二班</option>
+                    <option value="1" selected>软件三班</option>
+                    <option value="1">软件四班</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td align="right" valign="top">个人简介</td>
+            <td>
+                <textarea name="introduce" cols="30" rows="5">这是个人简介</textarea>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <a href="./home.html">确定添加</a>
+            </td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
