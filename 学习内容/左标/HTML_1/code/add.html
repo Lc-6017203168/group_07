@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>增加学员</title>
+</head>
+<body>
+<form action="add_ok.html">
+    <table width="400px"cellspacing="0"cellpadding="12"align="center">
+        <tr>
+            <th colspan="2" align="center">增加学员</th>
+        </tr>
+
+        <tr>
+            <td align="center">用户名</td>
+            <td align="center"><input type="text"name="userName"placeholder="请输入用户名"required> </td>
+        </tr>
+
+        <tr>
+            <td align="center">学号</td>
+            <td align="center"><input type="number"name="bumber"placeholder="请输入学号"required> </td>
+        </tr>
+
+        <tr>
+            <td align="center">性别</td>
+            <td align="center">
+                <input name="sex" type="radio" value="男">男
+                <input name="sex" type="radio" value="女">女
+            </td>
+        </tr>
+
+        <tr>
+            <td align="center">出生年月</td>
+            <td  align="center">
+                <input type="date" nema="bir" required placeholder="请输入出生日期" >
+            </td>
+        </tr>
+        <tr>
+            <td align="center" >爱好</td>
+            <td align="center" >
+                <input type="checkbox"name="habby" value="1">lol
+                <input type="checkbox"name="habby" value="2">music
+                <input type="checkbox"name="habby" value="3">旅行
+                <input type="checkbox"name="habby" value="4">看书
+            </td>
+        </tr>
+
+        <tr>
+            <td align="center" >个人简历</td>
+            <td align="center"><textarea row="5"cols="25"placeholder="请输入个人简介"></textarea></td>
+        </tr>
+        <tr>
+            <td align="center" >班级</td>
+            <td align="center" ><select>
+                <option value="1" selected>一班</option>
+                <option value="1">二班</option>
+                <option value="1">三班</option>
+                <option value="1">四班</option>
+            </select><td>
+        </tr>
+        <tr><td align="center"  colspan="2"><input type="submit" value="提交表单"></td></tr>
+
+    </table>
+</form>
+</body>
+</html>
