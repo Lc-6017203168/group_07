@@ -1,0 +1,39 @@
+.ul1{
+     list-style-type: none;
+     width: 300px;
+     background-color:salmon;
+     position: fixed;
+     height: 1200px;
+     margin-left: 400px;
+ }
+/*.li1{*/
+/*    width: 300px;*/
+/*    background-color:lightsalmon;*/
+/*}*/
+
+.ul2{
+    list-style-type: none;
+    width: 700px;
+    background-color:lightyellow;
+    position: fixed;
+    height: 1200px;
+    margin-left: 700px;
+    line-height: 250%;
+}
+.li2{
+    height: 125%;
+}
+li a{
+    display: block;
+    color: black;
+    text-decoration: none;
+    padding: 8px 16px;
+}
+li a.active{
+    background-color: red;
+    color: #66ff66;
+}
+li a:hover{
+    background-color: blue;
+    color:yellow;
+}
