@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>码云登入页面</title>
+    <style>
+        body{
+            margin: 0;
+        }
+        ul{
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            width: 25%;
+            background-color: #f1f1f1;
+            position: fixed;
+            height: 100%;
+        }
+        li a{
+            display: block;
+            color: black;
+            padding: 8px 16px;
+            text-decoration: none;
+        }
+        li a:active{
+            background-color: #4caf50;
+            color: white;
+        }
+        li a:hover{
+            background-color: #555;
+            color:white;
+        }
+    </style>
+</head>
+
+<ul>
+    <li>
+        <a class="active" href="#home">卓嘉明<br>加入时间5月前</a>
+    </li>
+    <li>
+        <a href="#news">消息中心</a>
+    </li>
+    <li>
+        <a href="#contract">我的消息</a>
+    </li>
+    <li>
+        <a href="#about">通知设置</a>
+    </li>
+    <li>
+        <a href="#about">基本设置</a>
+    </li>
+    <li>
+        <a href="#about">个人资料</a>
+    </li>
+    <li>
+        <a href="#about">修改密码</a>
+    </li>
+    <li>
+        <a href="#about">第三方账号绑定</a>
+    </li>
+    <li>
+        <a href="#about">多邮箱管理</a>
+    </li>
+    <li>
+        <a href="#about">升级为组织</a>
+    </li>
+    <li>
+        <a href="#about">升级为企业版</a>
+    </li>
+    <li>
+        <a href="#about">安全设置</a>
+    </li>
+    <li>
+        <a href="#about">SSH公钥</a>
+    </li>
+    <li>
+        <a href="#about">GPG公钥</a>
+    </li>
+    <li>
+        <a href="#about">私人令牌</a>
+    </li>
+    <li>
+    <a href="#about">第三方应用</a>
+    </li>
+    <li>
+        <a href="#about">登入历史</a>
+    </li>
+    <li>
+        <a href="#about">数据管理</a>
+    </li>
+    <li>
+        <a href="#about">仓库空间信息</a>
+    </li>
+    <li>
+        <a href="#about">私有仓库成员</a>
+    </li>
+    <li>
+        <a href="#about">代码风格</a>
+    </li>
+    <li>
+        <a href="#about">其他</a>
+    </li>
+    <li>
+        <a href="#about">捐赠管理</a>
+    </li>
+    <li>
+        <a href="#about">我的金库</a>
+    </li>
+    <li>
+        <a href="#about">我的邮递地址</a>
+    </li>
+</ul>
+
+    <div style="margin-left: 25%;padding: 2px 15px;height: 1000px">
+        <form action="" >
+            <table align="right" cellspacing="0" cellpadding="12px" width="480px" >
+                <tr>
+                    <td align="right">手机号码</td>
+                    <td>
+                        <input type="number" name="phonenumber" placeholder="请输入手机号" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">姓名</td>
+                    <td>
+                        <input type="text" name="name" placeholder="请输入名字" value="卓嘉明" required>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td align="right">性别</td>
+                    <td>
+                        <input type="radio" name="sex" value="1">男
+                        <input type="radio" name="sex" value="2">女
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">公司</td>
+                    <td>
+                        <input type="text" name="username" placeholder="公司" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">职务</td>
+                    <td>
+                        <input type="text" name="username" placeholder="职务" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">微信</td>
+                    <td>
+                        <input type="text" name="username" placeholder="请输入微信号" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">QQ</td>
+                    <td>
+                        <input type="text" name="username" placeholder="QQ" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">领英</td>
+                    <td>
+                        <input type="text" name="username" placeholder="请输入领英" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">微博</td>
+                    <td>
+                        <input type="text" name="username" placeholder="微博" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">博客</td>
+                    <td>
+                        <input type="text" name="username" placeholder="博客" required>
+                    </td>
+                </tr>
+                <td align="right">所在地</td>
+                <td>
+                    <select name="cityID" id="" required>
+                        <option value="1">天津市</option>
+                        <option value="2">北京市</option>
+                        <option value="3">福建省</option>
+                    </select>
+                </td>
+                <td>
+                    <select name="cityID" id="" required>
+                        <option value="1">城市</option>
+                        <option value="2">农村</option>
+
+                    </select>
+                </td>
+                </tr>
+                <tr>
+                    <td align="right">自我介绍</td>
+                    <td>
+                        <textarea name="introduce" id="" cols="30" rows="10" placeholder="请自我介绍一下"></textarea>
+                    </td>
+                </tr>
+            </table>
+        </form>
+
+    </div>
+</body>
+</html>
