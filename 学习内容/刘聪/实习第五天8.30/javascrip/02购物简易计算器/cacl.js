@@ -1,3 +1,10 @@
+window.onload=init;
+function init() {
+    document.getElementById("add").onclick=add;
+    document.getElementById("sub").onclick=sub;
+    document.getElementById("mul").onclick=mul;
+    document.getElementById("div").onclick=div;
+}
 function add()
 {
     n1=document.getElementById("num1");
