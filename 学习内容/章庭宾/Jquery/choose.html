@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>选择器</title>
+    <script src="jquery-3.4.1.min.js"></script>
+</head>
+<body>
+<h2>这是一个标题</h2> <br>
+<input type="text" id="txt_Input" pattern="请输入·姓名"> <br>
+<span id="tit_Hover">鼠标悬停效果</span> <br>
+<button id="btn_AddFontSize">点击这个让字体变大</button>
+<br>
+<script>
+    $(function () {
+        $("#btn_AddFontSize").click(function () {
+            $("h2").css("font_size","58px")
+        })
+        $("#tit_Hover").hover(function () {
+            alert("抓到鼠标了")
+        }),function () {
+            alert("鼠标又跑了")
+        }
+        $("#txt_Input").focus(function () {
+            $(this).css("background-color","#ccc")
+        })
+        $("#txt_Input").blur(function () {
+            $(this).css("background-color","#fff")
+        })
+    })
+</script>
+<span class="span">离开你才短短七天，我的心像老了七岁</span>
+<script type="text/javascript">
+    $(function () {
+        $(".span").click(function () {
+            $(".span").hide()
+        })
+    })
+</script>
+</body>
+</html>
