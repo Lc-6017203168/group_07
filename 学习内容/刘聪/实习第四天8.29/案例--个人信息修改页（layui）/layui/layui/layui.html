@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>layui修改个人信息</title>
+    <link rel="stylesheet" href="css/layui.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+        }
+
+        body {
+            /*background-color: #f4f4f4;*/
+            background-color: #f4f4f4;
+        }
+
+        .title {
+            font-size: 20px;
+            font-weight: bold;
+            padding: 15px 0;
+        }
+    </style>
+</head>
+<body>
+
+
+
+<div class="layui-container">
+
+    <h3 class="title">修改个人信息</h3>
+    <hr class="layui-bg-green">
+
+
+            <form action="" class="layui-form">
+
+
+                <div class="layui-row layui-col-space10">
+                    <div class="layui-col-xs6">
+                        <div class="layui-form-item">
+                            <label for="" class="layui-form-label">学生姓名</label>
+                            <div class="layui-input-block">
+                                <input type="text" placeholder="请输入姓名" class="layui-input">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="layui-col-xs6">
+
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">学号</label>
+                            <div class="layui-input-block">
+                                <input type="number" placeholder="请输入学号" class="layui-input">
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="layui-col-xs6">
+                    <div class="layui-form-item" >
+                        <label class="layui-form-label">性别</label>
+                        <div class="layui-input-block">
+                            <input type="radio" value="1" title="男" name="sex">
+                            <input type="radio" value="2" title="女" name="sex">
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="layui-col-xs6">
+                    <div class="layui-form-item" >
+                        <label class="layui-form-label">爱好</label>
+                        <div class="layui-input-block">
+                            <input type="checkbox" value="1" title="游泳" name="hobby">
+                            <input type="checkbox" value="2" title="旅游" name="hobby">
+                            <input type="checkbox" value="3" title="摄影" name="hobby" checked>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="layui-col-xs6">
+                    <div class="layui-form-item">
+                        <label for="" class="layui-form-label">年龄</label>
+                        <div class="layui-input-block">
+                            <input type="number" class="layui-input" placeholder="请输入年龄">
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="layui-col-xs6">
+                    <div class="layui-form-item">
+                        <label for="" class="layui-form-label">生日</label>
+                        <div class="layui-input-block">
+                            <input type="date" class="layui-input" placeholder="请输入生日">
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="layui-col-xs6">
+                    <div class="layui-form-item">
+                        <label for="" class="layui-form-label">家乡</label>
+                        <div class="layui-input-block">
+                            <input type="text" class="layui-input" placeholder="请输入家乡">
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="layui-col-xs6">
+                    <div class="layui-form-item">
+                        <label for="" class="layui-form-label">班级</label>
+                        <div class="layui-input-block">
+
+                            <select name="" id="">
+                                <option value="">请选择..</option>
+                                <option value="1">软件一班</option>
+                                <option value="2">软件二班</option>
+                                <option value="3">软件三班</option>
+                                <option value="4">软件四班</option>
+                            </select>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="layui-col-xs12">
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">个人简介</label>
+                        <div class="layui-input-block">
+                            <textarea class="layui-textarea"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="layui-form-item layui-col-xs2 layui-col-xs-offset10">
+                    <input type="submit" class="layui-btn layui-btn-normal layui-btn-fluid" value="提交">
+                </div>
+            </form>
+
+
+
+</div>
+
+<script src="layui.js"></script>
+<script type="text/javascript">
+    layui.use('form')
+</script>
+
+</body>
+</html>
