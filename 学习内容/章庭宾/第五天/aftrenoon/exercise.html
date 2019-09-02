@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        function mytime(){
+            var now=new Date();
+            var hh=now.getHours();
+            var mm=now.getMinutes();
+            var ss=now.getSeconds();
+            document.getElementById("myclock").innerHTML=hh+":"+mm+":"+ss;
+        }
+        var test=setInterval("mytime()",1000);
+    </script>
+</head>
+<body>
+<h1>
+    <div id="myclock"></div>
+</h1>
+</body>
+</html>
