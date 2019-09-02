@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>点亮</title>
+    <script>
+        alert('你好！');
+        function changeImage()
+        {
+            element=document.getElementById('myimage')
+            if (element.src.match("bulbon"))
+            {
+                element.src="img/eg_bulboff.gif";
+            }
+            else
+            {
+                element.src="img/eg_bulbon.gif";
+            }
+        }
+    </script>
+</head>
+<body>
+<img id="myimage" onmouseover="changeImage()" src="img/eg_bulboff.gif"
+     onmouseout="changeImage()">
+<input type="button" value="点我" onclick="alert('hello world!')">
+<p>点击灯泡来点亮或熄灭这盏灯</p>
+</body>
+</html>

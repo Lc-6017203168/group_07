@@ -1,3 +1,10 @@
+/*导航栏*/
+.m{
+    display: block;
+    color: black;
+    text-decoration:none;
+    padding: 8px 16px;
+}
 /*左侧调整*/
 .ul1{
      list-style-type: none;
