@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jquery-3.4.1.min.js"></script>
+
+</head>
+<body>
+<button id="btn_GetData">获取个人信息</button>
+<p>姓名：<span id="lbl_userName"></span></p>
+<p>年龄：<span id="lbl_age"></span></p>
+<p>姓名：<span id="lbl_class"></span></p>
+<script>
+    $(function(){
+        $("#btn_GetData").click(function(){
+            $.get(
+                "data/get.json",
+                function(res){
+                    $("#lbl_userName").text(res.data.userName)
+                    $("#lbl_age").text(res.data.age)
+                    $("#lbl_class").text(res.data.className)
+                }
+            )
+        })
+    })
+</script>
+</body>
+</html>

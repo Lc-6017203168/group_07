@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .important {
+            font-weight: bold;
+            font-size: 48px;
+        }
+
+        .orange {
+            /*color:#4CAF50;*/
+            color: orange;
+        }
+    </style>
+    <script src="jquery-3.4.1.min.js"></script>
+</head>
+<body>
+<h1>标题一</h1>
+<h2>标题二</h2>
+<p>这是一些段落</p>
+<p>另外一个段落</p>
+<div>这是一些重要文本</div>
+<div id="tex_Important" class="important">这是重要内容</div>
+<h3 id="title_Toggle">根据按钮切换class</h3>
+<h4 id="title_CSS">通过CSS修改</h4>
+<h4 id="title_Manycss">修改多个</h4>
+<br>
+<button>操作元素class</button>
+<script>
+    $(function () {
+        $("button").click(function () {
+            $("h1,h2,p").addClass("orange")
+            $("#tex_Important").removeClass("important")
+            $("#title_Toggle").toggleClass("orange")
+            $("#title_CSS").css("background-color", "#ccc")
+            $("#title_Manycss").css({
+                "color": "yellow",
+                "font-size": "36px"
+            })
+
+        })
+
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function mytime()
+        {
+        var hour = now.getHours();
+        switch(hour)
+        {
+        case 13:
+        case 14:
+        case 15:
+        case 16:
+        case 17:
+        case 18:
+        document.write("<h2>下午好!欢迎来到我的网站</h2>");
+        break;
+        case 19:
+        case 20:
+        case 21:
+        case 22:
+        case 23:
+        document.write("<h2>晚上好!欢迎来到我的网站</h2>");
+        break;
+        default:
+        document.write("<h2>上午好!欢迎来到我的网站</h2>");
+
+        var Month=now.getMonth()+1
+        var str=now.getFullYear()+"年"+Month+"月"+now.getDate()+"日";
+        document.write(str);
+        }
+        }
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
