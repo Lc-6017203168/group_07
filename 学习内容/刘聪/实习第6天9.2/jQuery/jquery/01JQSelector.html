@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jq选择器</title>
+    <script src="jquery-3.4.1.min.js"></script>
+</head>
+<body>
+<p>这是一个p标签</p>
+<h2 id="title">这是一个h2标签</h2>
+<div class="name">这是我的名字！</div>
+<script type="text/javascript">
+    $(function()
+    {
+        //隐藏所有的p标签
+        $("p").click(function()
+        {
+            $("p").hide()
+        })
+        //隐藏id为title元素
+        $("#title").click(function()
+        {
+            $("#title").hide()
+        })
+        //隐藏class为name的元素
+        $(".name").click(function(){
+            $(".name").hide()
+        })
+    })
+</script>
+</body>
+</html>

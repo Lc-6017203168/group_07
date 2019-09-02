@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>运动时间</title>
+    <script>
+        document.write("北京时间：");
+        function mytime()
+        {
+            //document.write("北京时间：")
+            var now =new Date();
+            var hh=now.getHours();
+            var mm=now.getMinutes();
+            var ss=now.getSeconds();
+            document.getElementById("myclock").innerHTML=hh+" : "+mm+" : "+ss;
+        }
+        //var test=setInterval("mytime()",1000);
+        var test=setInterval("mytime()",1000);
+    </script>
+</head>
+<body>
+<div id="myclock"></div>
+</body>
+</html>
