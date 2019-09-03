@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jquery-3.4.1.min.js"></script>
+
+</head>
+<body>
+<div>
+    姓名: <input type="text" id="tex_userName">
+    <br>
+    年龄: <input type="text" id="tex_age">
+    <br>
+    <button id="post">提交数据</button>
+    <script>
+        $(function () {
+            $("#post").click(function () {
+                var userName = $("#tex_userName").val();
+                var age = $("#tex_age").val();
+                $.post(
+                    "data/post.json",
+                    {
+                        userName: userName,
+                        age: age
+                    },
+                    function (res) {
+                        if (res.isSuccess) {
+                            alert(res.data)
+                        }
+                    }
+                )
+            })
+        })
+    </script>
+</div>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HTML操作</title>
+    <script src="jquery-3.4.1.min.js"></script>
+</head>
+<body>
+<p id="txt_Text">这是一段文本</p>
+<button id="btn_ChangeText">修改文本内容</button>
+<script>
+    $(function(){
+        // $("#btn_ChangeText").click(function(){
+        //     $("#txt_Text").text("修改后的值")
+        // })
+        $("#btn_ChangeText").click(function(){
+            $("#txt_Text").html("<b>这里是加粗的内容</b>")
+        })
+
+    })
+</script>
+</body>
+</html>
