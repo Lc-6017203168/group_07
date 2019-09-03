@@ -9,11 +9,17 @@
     <script src="../layui/layui.js"></script>
 </head>
 <!--后台大布局-->
+
 <body class="layui-layout-body">
 <div class="layui-layout-admin">
+
     <!--    头部内容（用于放置网站内容、登入内容、操作导航）-->
     <div class="layui-header">
+
+<!--        logo-->
         <div class="layui-logo">学员管理系统</div>
+
+<!--        当前用户登入及操作-->
         <ul class="layui-nav layui-layout-right">
             <li class="layui-nav-item">
                 <a href="javascript:;">
@@ -78,7 +84,7 @@
 
 </div>
 <script>
-    layui.use('element')
+    layui.use(['element','layer'])
 </script>
 </body>
 </html>
