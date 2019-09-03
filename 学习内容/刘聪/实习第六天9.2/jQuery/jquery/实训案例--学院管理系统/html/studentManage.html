@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../layui/css/layui.css">
+    <link rel="stylesheet" href="../css/reset.css">
+    <script src="../layui/layui.js"></script>
+</head>
+<body>
+<!--<h3>学生管理</h3>-->
+<div class="layui-fluid">
+
+<!--    layui卡片-->
+    <div class="layui-card">
+        <div class="layui-card-header">学员管理列表</div>
+        <div class="layui-card-body">
+
+<!--            结合栅格化布局完成页面布局-->
+            <div class="layui-row layui-col-space10">
+
+<!--                放置添加按钮-->
+                <div class="layui-col-xs1 layui-col-xs-offset11">
+                    <button class="layui-btn layui-btn-fluid">
+                        <i class="layui-icon layui-icon-add-1"></i>
+                        添加
+                    </button>
+
+                </div>
+<!--                放置学员列表-->
+<!--                lay-even:条纹状，隔行背景-->
+<!--                lay-skin：line(行边框)\row(列边框)\nob(无边框)-->
+<!--                lay-size:sm(小尺寸)\lg(大尺寸)-->
+                <table class="layui-table" lay-even lay-skin="line">
+<!--                    固定每行宽度-->
+                    <colgrouop>
+                        <col width="100">
+                        <col width="6">
+                        <col width="80">
+                        <col width="180">
+                        <col width="100">
+                        <col >
+                        <col width="300">
+                    </colgrouop>
+                    <thead>
+                    <tr>
+                        <th>姓名</th>
+                        <th>性别</th>
+                        <th>年龄</th>
+                        <th>学号</th>
+                        <th>班级</th>
+                        <th>签名</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+
+                    <tr>
+                        <td>刘聪</td>
+                        <td>男</td>
+                        <td>22</td>
+                        <td>6017203168</td>
+                        <td>软件一班</td>
+                        <td>追求高品质人生</td>
+                        <td>
+                            <div class="layui-btn-group">
+                                <button class="layui-btn layui-btn-primary">
+                                    <i class="layui-icon layui-icon-camera"></i>查看
+                                </button>
+                                <button class="layui-btn layui-btn-warm">
+                                    <i class="layui-icon layui-icon-edit"></i>编辑
+                                </button>
+                                <button class="layui-btn layui-btn-danger">
+                                    <i class="layui-icon layui-icon-delete"></i>删除
+                                </button>
+
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>刘聪</td>
+                        <td>男</td>
+                        <td>22</td>
+                        <td>6017203168</td>
+                        <td>软件一班</td>
+                        <td>追求高品质人生</td>
+                        <td>
+                            <div class="layui-btn-group">
+                                <button class="layui-btn layui-btn-primary">
+                                    <i class="layui-icon layui-icon-camera"></i>查看
+                                </button>
+                                <button class="layui-btn layui-btn-warm">
+                                    <i class="layui-icon layui-icon-edit"></i>编辑
+                                </button>
+                                <button class="layui-btn layui-btn-danger">
+                                    <i class="layui-icon layui-icon-delete"></i>删除
+                                </button>
+
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>刘聪</td>
+                        <td>男</td>
+                        <td>22</td>
+                        <td>6017203168</td>
+                        <td>软件一班</td>
+                        <td>追求高品质人生</td>
+                        <td>
+                            <div class="layui-btn-group">
+                                <button class="layui-btn layui-btn-primary">
+                                    <i class="layui-icon layui-icon-camera"></i>查看
+                                </button>
+                                <button class="layui-btn layui-btn-warm">
+                                    <i class="layui-icon layui-icon-edit"></i>编辑
+                                </button>
+                                <button class="layui-btn layui-btn-danger">
+                                    <i class="layui-icon layui-icon-delete"></i>删除
+                                </button>
+
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>刘聪</td>
+                        <td>男</td>
+                        <td>22</td>
+                        <td>6017203168</td>
+                        <td>软件一班</td>
+                        <td>追求高品质人生</td>
+                        <td>
+                            <div class="layui-btn-group">
+                                <button class="layui-btn layui-btn-primary">
+                                    <i class="layui-icon layui-icon-camera"></i>查看
+                                </button>
+                                <button class="layui-btn layui-btn-warm">
+                                    <i class="layui-icon layui-icon-edit"></i>编辑
+                                </button>
+                                <button class="layui-btn layui-btn-danger">
+                                    <i class="layui-icon layui-icon-delete"></i>删除
+                                </button>
+
+                            </div>
+                        </td>
+                    </tr>
+
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

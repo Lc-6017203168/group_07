@@ -42,28 +42,28 @@
             </li>
         </ul>
     </div>
-<!--    左侧导航菜单-->
+    <!--    左侧导航菜单-->
     <div class="layui-side layui-bg-orange">
         <ul class="layui-nav layui-nav-tree">
             <li class="layui-nav-item">
-                <a href="javascript:;">
+                <a href="studentManage.html" target="iframe_Content">
                     <i class="layui-icon layui-icon-user"></i>
                     学员管理
                 </a>
             </li>
             <li class="layui-nav-item">
-                <a href="javascript:;">
+                <a href="javascript:;" target="iframe_Content">
                     <i class="layui-icon layui-icon-user"></i>
                     系统管理
                 </a>
                 <dl class="layui-nav-child">
                     <dd>
-                        <a href="javascript:;">
+                        <a href="userManage.html" target="iframe_Content">
                             用户管理
                         </a>
                     </dd>
                     <dd>
-                        <a href="javascript:;">
+                        <a href="roleManage.html" target="iframe_Content">
                             角色管理
                         </a>
                     </dd>
@@ -71,11 +71,14 @@
             </li>
         </ul>
     </div>
-<!--    操作主内容区-->
-    <div class="layui-body">
+    <!--    操作主内容区-->
+    <div class="layui-body" style="overflow: hidden">
+<!--        iframe相当于一个窗口-->
+        <iframe src="" frameborder="0" name="iframe_Content" style="height:100%;width:100%;padding-top: 10px" ></iframe>
+        <img src="../image/01img.jpg" alt="" class="layui-body-img">
 
     </div>
-<!--    底部固定区域-->
+    <!--    底部固定区域-->
     <div class="layui-footer">融创软通IT学院--仁爱学院实训</div>
 </div>
 <script>
