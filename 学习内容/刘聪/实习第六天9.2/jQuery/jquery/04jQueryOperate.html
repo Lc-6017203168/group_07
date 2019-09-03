@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jquery-3.4.1.min.js"></script>
+</head>
+<body>
+    <p>这是一段内容</p>
+    <button id="btn_Operate">追加文本</button>
+    <script>
+        $(function(){
+            $("#btn_Operate").click(function(){
+                $("p").before("这是追加的内容")
+            })
+        })
+    </script>
+</body>
+</html>
