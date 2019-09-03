@@ -46,24 +46,24 @@
     <div class="layui-side layui-bg-orange">
         <ul class="layui-nav layui-nav-tree">
             <li class="layui-nav-item">
-                <a href="javascript:;">
+                <a href="studentManage.html" target="iframe_Content">
                     <i class="layui-icon layui-icon-user"></i>
                     学员管理
                 </a>
             </li>
             <li class="layui-nav-item">
-                <a href="javascript:;">
+                <a href="javascript:;" target="iframe_Content">
                     <i class="layui-icon layui-icon-user"></i>
                     系统管理
                 </a>
                 <dl class="layui-nav-child">
                     <dd>
-                        <a href="javascript:;">
+                        <a href="userManage.html" target="iframe_Content">
                             用户管理
                         </a>
                     </dd>
                     <dd>
-                        <a href="javascript:;">
+                        <a href="roleManage.html" target="iframe_Content">
                             角色管理
                         </a>
                     </dd>
@@ -72,7 +72,9 @@
         </ul>
     </div>
     <!--    操作主内容区-->
-    <div class="layui-body">
+    <div class="layui-body" style="overflow: hidden">
+<!--        iframe相当于一个窗口-->
+        <iframe src="" frameborder="0" name="iframe_Content" style="height:100%;width:100%;padding-top: 10px" ></iframe>
         <img src="../image/01img.jpg" alt="" class="layui-body-img">
 
     </div>
