@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../layui/css/layui.css">
+    <script src="../layui/layui.js"></script>
+</head>
+<body>
+<div class="layui-fluid">
+<!--    layui卡片-->
+    <div class="card">
+        <div class="layui-card-header">学员管理列表</div>
+        <div class="layui-card-body">
+<!--结构格栅化布局完成页面布局-->
+            <div class="layui-row layui-col-space10">
+
+<!--                放置添加按钮-->
+                    <div class="layui-col-xs1 layui-col-xs-offset11">
+                        <button class="layui-btn layui-btn-fluid">
+                            <i class="layui-icon layui-icon-add-1"></i>
+                            添加
+                        </button>
+                    </div>
+                <div class="layui-col-xs12">
+<!--                    lay-filter属性是为了识别-->
+                    <table id="data_Student" lay-filter="student"></table>
+                </div>
+                                                                  <div>
+<!--                    放置学员列表-->
+<!--                    lay-even:条纹状，隔行背景-->
+<!--                    lay-skin:line(行边框)|low(列边框)|nob(无边框)-->
+<!--                    lay-size:sm(小尺寸)|lg（大尺寸）-->
+<!--                <table class="layui-table" lay-even lay-skin="line">-->
+<!--&lt;!&ndash;                    固定每列宽度&ndash;&gt;-->
+<!--                    <colgroup>-->
+<!--                        <col width="100">-->
+<!--                        <col width="10">-->
+<!--                        <col width="180">-->
+<!--                        <col width="180">-->
+<!--                        <col>-->
+<!--                        <col width="240">-->
+<!--                    </colgroup>-->
+<!--                    <thead>-->
+<!--                    <tr>-->
+<!--                        <th>姓名</th>-->
+<!--                        <th>性别</th>-->
+<!--                        <th>年龄</th>-->
+<!--                        <th>学号</th>-->
+<!--                        <th>班级</th>-->
+<!--                        <th>签名</th>-->
+<!--                        <th>操作</th>-->
+<!--                    </tr>-->
+<!--                    </thead>-->
+<!--                    <tbody>-->
+<!--                    <tr>-->
+<!--                        <td>明珠</td>-->
+<!--                        <td>女</td>-->
+<!--                        <td>18</td>-->
+<!--                        <td>1234567</td>-->
+<!--                        <td>不知道几班</td>-->
+<!--                        <td>我是小猪猪</td>-->
+<!--                        <td>-->
+<!--                            <div class="layui-btn-group">-->
+<!--                                <button class="layui-btn layui-btn-xs layui-btn-primary">-->
+<!--                                    <i class="layui-icon layui-icon-camera"></i>编辑-->
+<!--                                </button>-->
+<!--                                <button class="layui-btn layui-btn-xs layui-btn-warm">-->
+<!--                                    <i class="layui-icon layui-icon-edit"></i>查看-->
+<!--                                </button>-->
+<!--                                <button class="layui-btn layui-btn-xs layui-btn-danger">-->
+<!--                                    <i class="layui-icon layui-icon-delete"></i>删除-->
+<!--                                </button>-->
+<!--                            </div>-->
+<!--                        </td>-->
+<!--                    </tr>-->
+<!--                    <tr>-->
+<!--                        <td>明珠</td>-->
+<!--                        <td>女</td>-->
+<!--                        <td>18</td>-->
+<!--                        <td>1234567</td>-->
+<!--                        <td>不知道几班</td>-->
+<!--                        <td>我是小猪猪</td>-->
+<!--                        <td>-->
+<!--                            <div class="layui-btn-group">-->
+<!--                                <button class="layui-btn layui-btn-xs layui-btn-primary">-->
+<!--                                    <i class="layui-icon layui-icon-camera"></i>编辑-->
+<!--                                </button>-->
+<!--                                <button class="layui-btn layui-btn-xs layui-btn-warm">-->
+<!--                                    <i class="layui-icon layui-icon-edit"></i>查看-->
+<!--                                </button>-->
+<!--                                <button class="layui-btn layui-btn-xs layui-btn-danger">-->
+<!--                                    <i class="layui-icon layui-icon-delete"></i>删除-->
+<!--                                </button>-->
+<!--                            </div>-->
+<!--                        </td>-->
+<!--                    </tr>-->
+<!--                    <tr>-->
+<!--                        <td>明珠</td>-->
+<!--                        <td>女</td>-->
+<!--                        <td>18</td>-->
+<!--                        <td>1234567</td>-->
+<!--                        <td>不知道几班</td>-->
+<!--                        <td>我是小猪猪</td>-->
+<!--                        <td>-->
+<!--                            <div class="layui-btn-group">-->
+<!--                                <button class="layui-btn layui-btn-xs layui-btn-primary">-->
+<!--                                    <i class="layui-icon layui-icon-camera"></i>编辑-->
+<!--                                </button>-->
+<!--                                <button class="layui-btn layui-btn-xs layui-btn-warm">-->
+<!--                                    <i class="layui-icon layui-icon-edit"></i>查看-->
+<!--                                </button>-->
+<!--                                <button class="layui-btn layui-btn-xs layui-btn-danger">-->
+<!--                                    <i class="layui-icon layui-icon-delete"></i>删除-->
+<!--                                </button>-->
+<!--                            </div>-->
+<!--                        </td>-->
+<!--                    </tr>-->
+<!--                    <tr>-->
+<!--                        <td>明珠</td>-->
+<!--                        <td>女</td>-->
+<!--                        <td>18</td>-->
+<!--                        <td>1234567</td>-->
+<!--                        <td>不知道几班</td>-->
+<!--                        <td>我是小猪猪</td>-->
+<!--                        <td>-->
+<!--                            <div class="layui-btn-group">-->
+<!--                                <button class="layui-btn layui-btn-xs layui-btn-primary">-->
+<!--                                    <i class="layui-icon layui-icon-camera"></i>编辑-->
+<!--                                </button>-->
+<!--                                <button class="layui-btn layui-btn-xs layui-btn-warm">-->
+<!--                                    <i class="layui-icon layui-icon-edit"></i>查看-->
+<!--                                </button>-->
+<!--                                <button class="layui-btn layui-btn-xs layui-btn-danger">-->
+<!--                                    <i class="layui-icon layui-icon-delete"></i>删除-->
+<!--                                </button>-->
+<!--                            </div>-->
+<!--                        </td>-->
+<!--                    </tr>-->
+<!--                    <tr>-->
+<!--                        <td>明珠</td>-->
+<!--                        <td>女</td>-->
+<!--                        <td>18</td>-->
+<!--                        <td>1234567</td>-->
+<!--                        <td>不知道几班</td>-->
+<!--                        <td>我是小猪猪</td>-->
+<!--                        <td>-->
+<!--                            <div class="layui-btn-group">-->
+<!--                                <button class="layui-btn layui-btn-xs layui-btn-primary">-->
+<!--                                    <i class="layui-icon layui-icon-camera"></i>编辑-->
+<!--                                </button>-->
+<!--                                <button class="layui-btn layui-btn-xs layui-btn-warm">-->
+<!--                                    <i class="layui-icon layui-icon-edit"></i>查看-->
+<!--                                </button>-->
+<!--                                <button class="layui-btn layui-btn-xs layui-btn-danger">-->
+<!--                                    <i class="layui-icon layui-icon-delete"></i>删除-->
+<!--                                </button>-->
+<!--                            </div>-->
+<!--                        </td>-->
+<!--                    </tr>-->
+<!--                    <tr>-->
+<!--                        <td>明珠</td>-->
+<!--                        <td>女</td>-->
+<!--                        <td>18</td>-->
+<!--                        <td>1234567</td>-->
+<!--                        <td>不知道几班</td>-->
+<!--                        <td>我是小猪猪</td>-->
+<!--                        <td>-->
+<!--                            <div class="layui-btn-group">-->
+<!--                                <button class="layui-btn layui-btn-xs layui-btn-primary">-->
+<!--                                    <i class="layui-icon layui-icon-camera"></i>编辑-->
+<!--                                </button>-->
+<!--                                <button class="layui-btn layui-btn-xs layui-btn-warm">-->
+<!--                                    <i class="layui-icon layui-icon-edit"></i>查看-->
+<!--                                </button>-->
+<!--                                <button class="layui-btn layui-btn-xs layui-btn-danger">-->
+<!--                                    <i class="layui-icon layui-icon-delete"></i>删除-->
+<!--                                </button>-->
+<!--                            </div>-->
+<!--                        </td>-->
+<!--                    </tr>-->
+
+
+<!--                    </tbody>-->
+<!--                </table>-->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/html" id="tpl_Operate">
+    <div class="layui-btn-group">
+        <button class="layui-btn layui-btn-xs layui-btn-primary" lay-event="view">
+            <i class="layui-icon layui-icon-camera"></i>查看
+        </button>
+        <button class="layui-btn layui-btn-xs layui-btn-warm" lay-event="update">
+            <i class="layui-icon layui-icon-edit"></i>编辑
+        </button>
+        <button class="layui-btn layui-btn-xs layui-btn-danger" lay-event="delete">
+            <i class="layui-icon layui-icon-delete"></i>删除
+        </button>
+    </div>
+</script>
+<script>
+            //layui.use是layui.js中公用的方法，可以直接在外部调用
+            // layui.use方法为了将组件js动态引入进来，提供对应的动态数据交互
+            // layui.use(mode,callback),mode：引入的模块名称，callback为回调函数
+            // 整个页面的js代码通常是卸载回调函数中的
+
+            //jQuery:layui中，将jq作为组件封装了
+            layui.use(['table','jquery','layer'],function () {
+                //初始化动态js组件，为了调用其中的方法
+                var table=layui.table;
+                    $=layui.$;
+                    layer=parent===self?layui.layer:top.layui.layer;
+                //初始化学生数据（从后台远程加载）
+                table.render({
+                    elem:'#data_Student',//需要动态渲染的DOM元素
+                    url:"http://140.143.186.38:8082/api/Student",//获取数据的连接
+                    page:true,
+                    cols:[[
+                        {
+                            field:'studentName',//绑定需要显示的字段
+                            title:'姓名',//表示显示的标题
+                            width:'10%',//宽度（px，%）
+                            align:'center'//对其方式
+                        },
+                        {field:'studentNo',title:'学号',width:'10%',align:'center'},
+                        {field:'age',title:"年龄",width:'7%',align:'center'},
+                        {title:"性别",width:'7%',align:'center', templet:function (data) {
+                                var gender=data.gender;
+                                var htmlStr='';
+                                // if(gender==1){
+                                //     htmlStr='<div style="color:cornflowerblue "><i class="layui-icon layui-icon-male"></i>男</div>'
+                                // }
+                                // else{
+                                //     htmlStr='<div style="color:deeppink "><i class="layui-icon layui-icon-female"></i>女</div>'
+                                // }
+                                // switch用法
+                                switch(gender) {
+                                    case 1:
+                                        htmlStr = '<div style="color:cornflowerblue "><i class="layui-icon layui-icon-male"></i>男</div>'
+                                        break;
+                                    case 2:
+                                        htmlStr = '<div style="color:deeppink "><i class="layui-icon layui-icon-female"></i>女</div>'
+                                        break;
+                                }
+                                return htmlStr;
+                            }},
+                        {field:'className',title:"所在班级",width:'15%'},
+                        {field:'introduce',title:"个人简历",width:'30%'},
+                        {title:'操作',toolbar:'#tpl_Operate', align:'center'}//最后一行不需要指定宽度，自动填充剩余的
+                    ]]
+                });
+                //工具栏的点击事件
+                table.on('tool(student)',function (object) {
+                    var event = object.event;
+                    var data = object.event;
+                    //确定是否点击删除按钮
+                    if (event === 'delete') {
+
+                        layer.confirm('确定要输出这名学员吗？',
+                            {
+                                title: '信息信息',
+                                icon: 3
+                            },
+                            function (layerIndex) {
+                                //layuerIndex是弹出层的索引，关闭弹窗时候用的到
+                                layer.close(layerIndex);
+                                $.post("../json/delete.json", function(res) {
+                                    if (res.code === 0) {
+                                        layer.alert(res.data, {
+                                            icon: 1,
+                                            title: '信息提示'
+                                        })
+                                    } else {
+                                        layer.alert(res.msg,{
+                                            icon: 2,
+                                            title: '错误提示'
+                                        })
+                                    }
+                                })
+                            })
+                    }
+                })
+        })
+
+
+                // if(confirm("确定要删除吗？")){
+                // $.post("../json/delete.json",function (res) {
+                //     if(res.code==0) {
+                //         alert(res.data)
+                //     }else{
+                //         alert(res.msg)
+                //         }
+                //     })
+                // }
+
+            // }
+        // })
+
+
+</script>
+
+</body>
+</html>
