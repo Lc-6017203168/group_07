@@ -21,7 +21,7 @@
 
                 <!--                放置添加按钮-->
                 <div class="layui-col-xs1 layui-col-xs-offset11">
-                    <button class="layui-btn layui-btn-fluid">
+                    <button class="layui-btn layui-btn-fluid" id="btn_Add">
                         <i class="layui-icon layui-icon-add-1"></i>
                         添加
                     </button>
@@ -169,7 +169,7 @@
         <button class="layui-btn layui-btn-primary" lay-event="view">
             <i class="layui-icon layui-icon-camera"></i>查看
         </button>
-        <button class="layui-btn layui-btn-warm" lay-event="update">
+        <button class="layui-btn layui-btn-warm" lay-event="updata">
             <i class="layui-icon layui-icon-edit"></i>编辑
         </button>
         <button class="layui-btn layui-btn-danger" lay-event="delect">
@@ -299,6 +299,38 @@
                     }
                 })*/
             }
+            //编辑
+            if(event==='view')
+            {
+                //layer.open方法可以直接弹出html
+                layer.open({
+                    type:2 ,//表示弹出框为iframe
+                    content:'studentDetail.html',
+                    area:['960px','540px'],//弹出框的大小
+                    title:'学员详情'
+                })
+
+            }
+            if(event==='updata')
+            {
+                layer.open({
+                    type:2 ,//表示弹出框为iframe
+                    content:'studentUpdata.html',
+                    area:['960px','640px'],//弹出框的大小
+                    title:'修改学员信息'
+                })
+            }
+
+        })
+
+        //添加按钮点击事件
+        $('#btn_Add').click(function(){
+            layer.open({
+                type:2 ,//表示弹出框为iframe
+                content:'studentAdd.html',
+                area:['960px','640px'],//弹出框的大小
+                title:'添加学员信息'
+            })
         })
     })
     //
