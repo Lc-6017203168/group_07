@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../layui/css/layui.css">
+    <link rel="stylesheet" href="../css/reset.css">
+    <script src="../layui/layui.js"></script>
+</head>
+<body>
+<!--<h3>学生管理</h3>-->
+<div class="layui-fluid">
+
+    <!--    layui卡片-->
+    <div class="layui-card">
+        <div class="layui-card-header">学员管理列表</div>
+        <div class="layui-card-body">
+
+            <!--            结合栅格化布局完成页面布局-->
+            <div class="layui-row layui-col-space10">
+
+                <!--                放置添加按钮-->
+                <div class="layui-col-xs1 layui-col-xs-offset11">
+                    <button class="layui-btn layui-btn-fluid">
+                        <i class="layui-icon layui-icon-add-1"></i>
+                        添加
+                    </button>
+
+                </div>
+
+
+                <div class="layui-col-xs12">
+<!--                    lay-filter属性是为了做识别-->
+                    <table id="data_Student" lay-filter="student"></table>
+
+                </div>
+                <!--                放置学员列表-->
+                <!--                lay-even:条纹状，隔行背景-->
+                <!--                lay-skin：line(行边框)\row(列边框)\nob(无边框)-->
+                <!--                lay-size:sm(小尺寸)\lg(大尺寸)-->
+
+<!--
+               <table class="layui-table" lay-even lay-skin="line">
+                    &lt;!&ndash;                    固定每行宽度&ndash;&gt;
+                    <colgrouop>
+                        <col width="100">
+                        <col width="6">
+                        <col width="80">
+                        <col width="180">
+                        <col width="100">
+                        <col>
+                        <col width="300">
+                    </colgrouop>
+                    <thead>
+                    <tr>
+                        <th>姓名</th>
+                        <th>性别</th>
+                        <th>年龄</th>
+                        <th>学号</th>
+                        <th>班级</th>
+                        <th>签名</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+
+                    <tr>
+                        <td>刘聪</td>
+                        <td>男</td>
+                        <td>22</td>
+                        <td>6017203168</td>
+                        <td>软件一班</td>
+                        <td>追求高品质人生</td>
+                        <td>
+                            <div class="layui-btn-group">
+                                <button class="layui-btn layui-btn-primary">
+                                    <i class="layui-icon layui-icon-camera"></i>查看
+                                </button>
+                                <button class="layui-btn layui-btn-warm">
+                                    <i class="layui-icon layui-icon-edit"></i>编辑
+                                </button>
+                                <button class="layui-btn layui-btn-danger">
+                                    <i class="layui-icon layui-icon-delete"></i>删除
+                                </button>
+
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>刘聪</td>
+                        <td>男</td>
+                        <td>22</td>
+                        <td>6017203168</td>
+                        <td>软件一班</td>
+                        <td>追求高品质人生</td>
+                        <td>
+                            <div class="layui-btn-group">
+                                <button class="layui-btn layui-btn-primary">
+                                    <i class="layui-icon layui-icon-camera"></i>查看
+                                </button>
+                                <button class="layui-btn layui-btn-warm">
+                                    <i class="layui-icon layui-icon-edit"></i>编辑
+                                </button>
+                                <button class="layui-btn layui-btn-danger">
+                                    <i class="layui-icon layui-icon-delete"></i>删除
+                                </button>
+
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>刘聪</td>
+                        <td>男</td>
+                        <td>22</td>
+                        <td>6017203168</td>
+                        <td>软件一班</td>
+                        <td>追求高品质人生</td>
+                        <td>
+                            <div class="layui-btn-group">
+                                <button class="layui-btn layui-btn-primary">
+                                    <i class="layui-icon layui-icon-camera"></i>查看
+                                </button>
+                                <button class="layui-btn layui-btn-warm">
+                                    <i class="layui-icon layui-icon-edit"></i>编辑
+                                </button>
+                                <button class="layui-btn layui-btn-danger">
+                                    <i class="layui-icon layui-icon-delete"></i>删除
+                                </button>
+
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>刘聪</td>
+                        <td>男</td>
+                        <td>22</td>
+                        <td>6017203168</td>
+                        <td>软件一班</td>
+                        <td>追求高品质人生</td>
+                        <td>
+                            <div class="layui-btn-group">
+                                <button class="layui-btn layui-btn-primary">
+                                    <i class="layui-icon layui-icon-camera"></i>查看
+                                </button>
+                                <button class="layui-btn layui-btn-warm">
+                                    <i class="layui-icon layui-icon-edit"></i>编辑
+                                </button>
+                                <button class="layui-btn layui-btn-danger">
+                                    <i class="layui-icon layui-icon-delete"></i>删除
+                                </button>
+
+                            </div>
+                        </td>
+                    </tr>
+
+
+                    </tbody>
+                </table>
+-->
+
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/html" id="tpl_Operate" >
+
+    <div class="layui-btn-group">
+        <button class="layui-btn layui-btn-primary" lay-event="view">
+            <i class="layui-icon layui-icon-camera"></i>查看
+        </button>
+        <button class="layui-btn layui-btn-warm" lay-event="update">
+            <i class="layui-icon layui-icon-edit"></i>编辑
+        </button>
+        <button class="layui-btn layui-btn-danger" lay-event="delect">
+            <i class="layui-icon layui-icon-delete"></i>删除
+        </button>
+    </div>
+
+</script>
+<script>
+    //layui.use是layui.js中公用的方法，可以直接在外部调用
+    //1.layui.use方法为了将组建js动态引用进来提供对应的动态数据交互
+    //2.layui.use(mode,callback),mode:引用的模块名称，callback为回调函数
+    //3.整个页面的js代码通常是写在回调函数里面
+    //jQuery:layui中，将jq作为组件封装了
+
+    layui.use(['table','jquery','layer'],function(){
+        //初始化动态js组件，为了调用其中的方法
+        var table=layui.table,
+        $=layui.$,
+        layer=parent===self?layui.layer:top.layui.layer;
+        //初始化学生数据（从后台远程加载）
+        table.render({
+            elem:"#data_Student",//需要动态渲染的DOM元素
+            url:'http://140.143.186.38:8082/api/Dish',//获取数据的链接
+            page:true,//开启分页
+            cols:[[
+                {
+                    field:'dishId',//绑定需要显示的字段
+                    title:'碟编号',//表头显示的标题
+                    width:'10%',//宽度（px，%）
+                    align:'center',//对齐方式
+                },
+                {
+                    field:'dishName',//绑定需要显示的字段
+                    title:'蝶名称',//表头显示的标题
+                    width:'10%',//宽度（px，%）
+                    align:'center',//对齐方式
+                },
+                {
+                    field:'imageUrl',//绑定需要显示的字段
+                    title:'碟样式',//表头显示的标题
+                    width:'15%',//宽度（px，%）
+                    align:'center',//对齐方式
+                },
+                {
+                    field:'unitPrice',//绑定需要显示的字段
+                    title:'单价',//表头显示的标题
+                    width:'10%',//宽度（px，%）
+                    align:'center',//对齐方式
+                },
+                {
+                    field:'numberPrice',//绑定需要显示的字段
+                    title:'总价',//表头显示的标题
+                    width:'10%',//宽度（px，%）
+                    align:'center',//对齐方式
+                },
+                {
+                    field:'categoryName',//绑定需要显示的字段
+                    title:'类别',//表头显示的标题
+                    width:'10%',//宽度（px，%）
+                    align:'center',//对齐方式
+                },
+                {
+
+                    title:"操作",toolbar:'#tpl_Operate',align:"center"
+
+                }//最后一行不需要指定宽度，自动填充剩余的
+            ]]
+        });
+        //工具栏的点击事件
+        table.on('tool(student)',function(object){
+            //回调函数中携带的参数object可以获取当前行的数据，还有标记事件的名称
+            var event=object.event;
+            var data=object.data;
+         //判断是否点击删除按钮
+            if(event==='delect')
+            {
+                layer.confirm(
+                    '确定要删除着名学员吗？',
+                    {
+                        title:'信息提示',
+                          icon:3
+                    },
+                    function(layerIndex){
+                        //layerIndex弹出层的索引，关闭弹窗时需要用到
+                        layer.close(layerIndex);
+                        $.post('../json/delect.json',function (res){
+                            if(res.code===0){
+                                layer.alert(res.data,{
+                                    icon:1,
+                                    title:'信息提示'
+                                })
+                            }else{
+                                layer.alert(res.msg,{
+                                    icon:2,
+                                    title:'错误提示'
+                                })
+                            }
+                        })
+                    }
+                )
+                /*$.post('../json/delect.json',function (res) {
+
+                    if(confirm("确定要删除吗？"))
+                    {
+                        if(res.code===0)
+                        {
+                            alert(res.data)
+                        }
+                        else{
+                            alert(res.msg)
+                        }
+                    }
+                })*/
+            }
+        })
+    })
+    //
+</script>
+</body>
+</html>
