@@ -17,7 +17,7 @@
 
 <!--                放置添加按钮-->
                     <div class="layui-col-xs1 layui-col-xs-offset11">
-                        <button class="layui-btn layui-btn-fluid">
+                        <button class="layui-btn layui-btn-fluid" id="btn_add">
                             <i class="layui-icon layui-icon-add-1"></i>
                             添加
                         </button>
@@ -255,7 +255,7 @@
                 //工具栏的点击事件
                 table.on('tool(student)',function (object) {
                     var event = object.event;
-                    var data = object.event;
+                    var data = object.data;
                     //确定是否点击删除按钮
                     if (event === 'delete') {
 
@@ -267,7 +267,27 @@
                             function (layerIndex) {
                                 //layuerIndex是弹出层的索引，关闭弹窗时候用的到
                                 layer.close(layerIndex);
-                                $.post("../json/delete.json", function(res) {
+                                $.ajax({
+                                    url:'http://140.143.186.38:8082/api/Student/'+data.id,
+                                    type:'DELETE',
+                                    success:function (res) {
+                                        if (res.code === 0) {
+                                            layer.alert(res.data, {
+                                                icon: 1,
+                                                title: '信息提示'
+                                            },function (alertIndex) {
+                                                layer.close(alertIndex);
+                                                refreshTable();
+                                            })
+                                        } else {
+                                            layer.alert(res.msg, {
+                                                icon: 2,
+                                                title: '错误提示'
+                                            })
+                                        }
+                                    }
+                                })
+                                /* $.post("../json/delete.json", function(res) {
                                     if (res.code === 0) {
                                         layer.alert(res.data, {
                                             icon: 1,
@@ -279,9 +299,42 @@
                                             title: '错误提示'
                                         })
                                     }
-                                })
+                                })*/
+
                             })
                     }
+                    //查看学员
+                    if(event==='view'){
+                            // layer.open()直接弹出页面
+                        layer.open({
+                            type:2,//弹出框为iframe
+                            content:"student_view.html",
+                            area:['960px','640px'],
+                             title:'学员详细信息查看'
+                        })
+                    }
+                    //编辑学员
+                    if(event==='update'){
+                        layer.open({
+                            type:2,//弹出框为iframe
+                            content:"student_update.html",
+                            area:['960px','640px'],
+                            title:"学员信息编辑"
+                        })
+                    }
+                })
+                //添加学员
+                $('#btn_add').click(function () {
+                    layer.open({
+                        type:2,//弹出框为iframe
+                        content:"student_add.html",
+                        area:['960px','640px'],
+                        title:'学员添加',
+                        //弹窗关闭销毁时调用
+                        end:function () {
+                            refreshTable();
+                        }
+                    })
                 })
         })
 
