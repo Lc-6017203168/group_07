@@ -172,7 +172,7 @@
         <button class="layui-btn layui-btn-warm" lay-event="updata">
             <i class="layui-icon layui-icon-edit"></i>编辑
         </button>
-        <button class="layui-btn layui-btn-danger" lay-event="delect">
+        <button class="layui-btn layui-btn-danger" lay-event="delete">
             <i class="layui-icon layui-icon-delete"></i>删除
         </button>
     </div>
@@ -259,7 +259,7 @@
             var event=object.event;
             var data=object.data;
          //判断是否点击删除按钮
-            if(event==='delect')
+            if(event==='delete')
             {
                 layer.confirm(
                     '确定要删除着名学员吗？',
@@ -270,7 +270,27 @@
                     function(layerIndex){
                         //layerIndex弹出层的索引，关闭弹窗时需要用到
                         layer.close(layerIndex);
-                        $.post('../json/delect.json',function (res){
+                        $.ajax({
+                            url:'http://140.143.186.38:8082/api/Student/'+data.id,
+                            type:"DELETE",
+                            success:function(res) {
+                                if (res.code === 0) {
+                                    layer.alert(res.data, {
+                                        icon: 1,
+                                        title: '信息提示'
+                                    }, function (alertIndex) {
+                                        layer.close(alertIndex);
+                                        refreshTable();
+                                    })
+                                } else {
+                                    layer.alert(res.msg, {
+                                        icon: 2,
+                                        title: '错误提示'
+                                    })
+                                }
+                            }
+                        })
+                        /*$.post('../json/delect.json',function (res){
                             if(res.code===0){
                                 layer.alert(res.data,{
                                     icon:1,
@@ -282,7 +302,7 @@
                                     title:'错误提示'
                                 })
                             }
-                        })
+                        })*/
                     }
                 )
                 /*$.post('../json/delect.json',function (res) {
@@ -329,9 +349,19 @@
                 type:2 ,//表示弹出框为iframe
                 content:'studentAdd.html',
                 area:['960px','640px'],//弹出框的大小
-                title:'添加学员信息'
+                title:'添加学员信息',
+                //弹窗关闭销毁时调用
+                end:function(){
+                    refreshTable();
+                }
             })
         })
+        //刷新数据列表
+        var refreshTable=function () {
+            table.reload('data_Student',{
+
+            })
+        }
     })
     //
 </script>
