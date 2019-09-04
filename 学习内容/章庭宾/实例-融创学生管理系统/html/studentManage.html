@@ -3,8 +3,246 @@
 <head>
     <meta charset="UTF-8">
     <title>学员管理</title>
+    <link rel="stylesheet" href="../layui/css/layui.mobile.css">
+    <link rel="stylesheet" href="../layui/css/layui.css">
+    <script src="../layui/layui.js"></script>
+
 </head>
 <body>
-
+<div class="layui-fluid">
+    <!--    layui卡片-->
+    <div class="layui-card">
+        <div class="layui-card-header">学员管理列表</div>
+        <div class="layui-card-body"></div>
+        <!--        结合栅格化布局完成页面布局-->
+        <div class="layui-row layui-col-space10">
+            <!--            放置添加按钮-->
+            <div class="layui-col-xs1 layui-col-xs-offset11">
+                <button class="layui-btn layui-btn-fluid">
+                    <i class="layui-icon layui-icon-add-1"></i>
+                    添加
+                </button>
+            </div>
+            <div class="layui-col-xs12">
+                <table id="data_Student" lay-filter></table>
+            </div>
+            <!--            放置学员列表-->
+<!--            lay-even;条纹状，隔行背景-->
+<!--            lay-skin:line(行边框)\row（列边框）\nob(无边框)-->
+<!--            lay-size:sm(小尺寸)\lg（大尺寸）-->
+           <!-- <table class="layui-table" lay-skin="line"  lay-even>
+&lt;!&ndash;                固定每列的宽度&ndash;&gt;
+                <colgrouop>
+                    <col width="100">
+                    <col width="60">
+                    <col width="60">
+                    <col width="180">
+                    <col width="180">
+                    <col >
+                    <col width="240">
+                </colgrouop>
+                <thead>
+                <tr>
+                    <th>姓名</th>
+                    <th>性别</th>
+                    <th>年龄</th>
+                    <th>学号</th>
+                    <th>班级</th>
+                    <th>签名</th>
+                    <th>操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>章庭宾</td>
+                    <td>男</td>
+                    <td>21</td>
+                    <td>6017203296</td>
+                    <td>软工四班</td>
+                    <td>你要信我呀</td>
+                    <td>
+                        <div class="layui-btn-group">
+                            <button class="layui-btn layui-btn-xs layui-btn-primary">
+                                <i class="layui-icon layui-icon-camera"></i>查看
+                            </button>
+                            <button class="layui-btn layui-btn-xs layui-btn-warm">
+                                <i class="layui-icon layui-icon-edit"></i>编辑
+                            </button>
+                            <button class="layui-btn layui-btn-xs layui-btn-danger">
+                                <i class="layui-icon layui-icon-delete"></i>删除
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+                <tbody>
+                <tr>
+                    <td>章庭宾</td>
+                    <td>男</td>
+                    <td>21</td>
+                    <td>6017203296</td>
+                    <td>软工四班</td>
+                    <td>你要信我呀</td>
+                    <td>
+                        <div class="layui-btn-group">
+                            <button class="layui-btn layui-btn-xs layui-btn-primary">
+                                <i class="layui-icon layui-icon-camera"></i>查看
+                            </button>
+                            <button class="layui-btn layui-btn-xs layui-btn-warm">
+                                <i class="layui-icon layui-icon-edit"></i>编辑
+                            </button>
+                            <button class="layui-btn layui-btn-xs layui-btn-danger">
+                                <i class="layui-icon layui-icon-delete"></i>删除
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+                <tbody>
+                <tr>
+                    <td>章庭宾</td>
+                    <td>男</td>
+                    <td>21</td>
+                    <td>6017203296</td>
+                    <td>软工四班</td>
+                    <td>你要信我呀</td>
+                    <td>
+                        <div class="layui-btn-group">
+                            <button class="layui-btn layui-btn-xs layui-btn-primary">
+                                <i class="layui-icon layui-icon-camera"></i>查看
+                            </button>
+                            <button class="layui-btn layui-btn-xs layui-btn-warm">
+                                <i class="layui-icon layui-icon-edit"></i>编辑
+                            </button>
+                            <button class="layui-btn layui-btn-xs layui-btn-danger">
+                                <i class="layui-icon layui-icon-delete"></i>删除
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+                <tbody>
+                <tr>
+                    <td>章庭宾</td>
+                    <td>男</td>
+                    <td>21</td>
+                    <td>6017203296</td>
+                    <td>软工四班</td>
+                    <td>你要信我呀</td>
+                    <td>
+                        <div class="layui-btn-group">
+                            <button class="layui-btn layui-btn-xs layui-btn-primary">
+                                <i class="layui-icon layui-icon-camera"></i>查看
+                            </button>
+                            <button class="layui-btn layui-btn-xs layui-btn-warm">
+                                <i class="layui-icon layui-icon-edit"></i>编辑
+                            </button>
+                            <button class="layui-btn layui-btn-xs layui-btn-danger">
+                                <i class="layui-icon layui-icon-delete"></i>删除
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+                <tbody>
+                <tr>
+                    <td>章庭宾</td>
+                    <td>男</td>
+                    <td>21</td>
+                    <td>6017203296</td>
+                    <td>软工四班</td>
+                    <td>你要信我呀</td>
+                    <td>
+                        <div class="layui-btn-group">
+                            <button class="layui-btn layui-btn-xs layui-btn-primary">
+                                <i class="layui-icon layui-icon-camera"></i>查看
+                            </button>
+                            <button class="layui-btn layui-btn-xs layui-btn-warm">
+                                <i class="layui-icon layui-icon-edit"></i>编辑
+                            </button>
+                            <button class="layui-btn layui-btn-xs layui-btn-danger">
+                                <i class="layui-icon layui-icon-delete"></i>删除
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>-->
+        </div>
+    </div>
+</div>
+<script type="text/html" id="tpl_Operate">
+    <div>
+        <button class="layui-btn layui-btn-xs layui-btn-primary">
+            <i class="layui-icon layui-icon-camera"></i>查看
+        </button>
+        <button class="layui-btn layui-btn-xs layui-btn-warm">
+            <i class="layui-icon layui-icon-edit"></i>编辑
+        </button>
+        <button class="layui-btn layui-btn-xs layui-btn-danger">
+            <i class="layui-icon layui-icon-delete"></i>删除
+        </button>
+    </div>
+</script>
+<script>
+    //layui.use是layui.js种公用的方法，可以直接在外部调用
+    //1.layui.use方法为了将组件js引用进来，提供对应的动态数据交互
+    //2.layui.use(mode,callback),mode:引入的模块名称，callback为回调函数
+    //3.整个页面的js代码通常是写在回调函数中的
+    layui.use('table',function(){
+        //初始化动态js组件，为了调用其中的方法
+        var table=layui.table;
+        //初始化学生数据（从后台远程加载）
+        table.render({
+            elem:'#data_Student',//需要动态渲染的DOM元素
+            url:'http://140.143.186.38:8082/api/Student',//获取数据连接
+            page:true,//开始分页
+            cols:[[
+                {
+                    field:'studentName',//绑定需要显示的字段
+                    title:'姓名',//表头显示的标题
+                    width:'10%',//宽度（px,%）
+                    align:'center',//对齐方式
+                },
+                {field:'studentNo',title:'学号',width:'10%',align:'center'},
+                {field:'age',title:'年龄',width:'7%',align:'center'},
+                {field:'gender',title:'性别',width:'7%',align:'center',templet:function(date){
+                    var gender=data.gender;
+                    var htmlStr='';
+                    switch(gender){
+                        case 1:
+                            htmlStr='<div style="color:cornflowerblue"><i class="layui-icon layui-icon-male"></i>男</div>>'
+                            break;
+                        case 2:
+                            htmlStr='<div style="color:deeppink"><i class="layui-icon layui-icon-female"></i>女</div>>'
+                            break;
+                    }
+                    return htmlStr;
+                    }},
+                {field:'className',title:'所在班级',width:'15%'},
+                {field:'introduce',title:'个人简介',width:'30%'},
+                {title:'操作'}//最后一行不需要指定宽度，自动填充剩余的
+            ]]
+        });
+        //工具栏的点击事件
+        table.on('tool(student)',function (object){
+            //回调函数中携带的参数object可以获取到当前行的数据，还有标记事件的名称
+            var event=object.event;
+            var data=object.date;
+            //判断是否点击尚处按钮
+            if(event=='delete'){
+                if(confirm("确定删除吗")){
+                    $.post('../json/delete.json',function (res) {
+                        if(res.code==0){
+                            alert(res.data)
+                        }else{
+                            alert(res.msg)
+                        }
+                    })
+                }
+            }
+        })
+    })
+</script>
 </body>
 </html>
