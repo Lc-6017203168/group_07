@@ -22,6 +22,8 @@
         <ul class="layui-nav layui-layout-right " lay-filter="">
             <li class="layui-nav-item">
                 <a href="javascript:;">
+                    <!--href 标签的 href 属性用于指定超链接目标的 URL
+                URL:它包含的信息指出文件的位置以及浏览器应该怎么处理它-->
                     <img src="../image/01img.jpg" height="320" width="320" class="layui-nav-img"/>
                     刘聪
                 </a>
@@ -47,7 +49,7 @@
         <ul class="layui-nav layui-nav-tree">
             <li class="layui-nav-item">
 <!--                <a> 标签的 target 属性规定在何处打开链接文档-->
-                <a href="studentManage.html" target="iframe_Content">
+                <a href="studentManage.html" target="iframe_Content"> <!--targrt-->
                     <i class="layui-icon layui-icon-user"></i>
                     学员管理
                 </a>
@@ -73,8 +75,10 @@
         </ul>
     </div>
     <!--    操作主内容区-->
+    <!--style 属性规定元素的行内样式
+    overflow属性指定如果内容溢出一个元素的框，会发生什么-->
     <div class="layui-body" style="overflow: hidden">
-<!--        iframe相当于一个窗口-->
+<!--        iframe相当于一个窗口  标记一个内联框架-->
         <iframe src="" frameborder="0" name="iframe_Content" style="height:100%;width:100%;padding-top: 10px" ></iframe>
         <img src="../image/01img.jpg" alt="" class="layui-body-img">
 
