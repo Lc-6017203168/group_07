@@ -2,19 +2,19 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>学员添加</title>
-    <script src="../layui/layui.js"></script>
+    <title>Title</title>
     <link rel="stylesheet" href="../layui/css/layui.css">
     <link rel="stylesheet" href="../css/reset.css">
-
+    <script src="../layui/layui.js"></script>
+    <script src="../js/url.js"></script>
 </head>
 <body>
 <div class="layui-fluid">
     <div class="layui-card">
         <div class="layui-card-header">添加学员信息</div>
         <div class="layui-card-body">
-            <div class="layui-form layui-form-pane">
-
+            <div class="layui-form layui-form-pane" lay-filter="student">
+                <input type="hidden" name="studentId">
                 <div class="layui-row layui-col-space10">
                     <div class="layui-col-xs6">
                         <div class="layui-form-item">
@@ -75,10 +75,10 @@
                             <div class="layui-input-block">
                                 <select id="cmb_Class" name="classId" lay-verify="required" lay-filter="class">
                                     <option value="">请输入...</option>
-                                   <!-- <option value="1">软件一班</option>
-                                    <option value="2">软件二班</option>
-                                    <option value="3">软件三班</option>
-                                    <option value="4">软件四班</option>-->
+                                     <option value="1">软件一班</option>
+                                     <option value="2">软件二班</option>
+                                     <option value="3">软件三班</option>
+                                     <option value="4">软件四班</option>
                                 </select>
                             </div>
                         </div>
@@ -113,22 +113,21 @@
     </div>
 
 </div>
-
 <script>
     layui.use(['form','jquery','layer'],function () {
         var form=layui.form,
             layer=parent===self?layui.layer:top.layui.layer,
         $=layui.$;
-
         //自定义验证规则
-        form.verify({
-            age:function (value) {
-                if(value<18||value>24)
-                {
-                    return '年龄必须在18~24岁之间';
+        forn.verify({
+            age:function(value){
+                if(value<18||value>24){
+                    return '年龄必须在18-24岁之间'
                 }
-            }
+        }
         })
+
+
         //初始化班级数据
         $.get(
             'http://140.143.186.38:8082/api/StudentClass',
@@ -141,41 +140,56 @@
                 }
                 //在追加节点以后需要重新渲染select
                 form.render('select')
-            }
-        )
+                //初始化表单内容
+                var studentId=getUrl("id");
+                $.get(
+                    'http://140.143.186.38:8082/api/Student/'+studentId,
+                    function (res) {
+                        form.val('student',{
+                            "studentId":res.data.studentId,
+                            "studentName":res.data.studentName,
+                            "studentNo":res.data.studentNo,
+                            "age":res.data.age,
+                            "gender":res.data.gender,
+                            "introduce":res.data.introduce,
+                            "classId":res.data.classId
+                        })
+                    }
+                )
+            })
 
-        //监听表单提交
+        //学员编辑表单提交
         form.on('submit(student)',function(object){
             var data=object.field;
-            $.post(
-                'http://140.143.186.38:8082/api/Student',
-                data,
-                function(res){
+            $.ajax({
+                url:'http://140.143.186.38:8082/api/Student',
+                type:'PUT',
+                success:function (res) {
                     if(res.code===0){
                         layer.alert(res.data,{
                             icon:1,
                             title:'信息提示'
-                        },function (alertIndex) {
-                            layer.close(alertIndex);//关闭提示窗口
-                            closeIframeLayer();//关闭iframe弹窗
+                        },function (alertIndex){
+                            layer.close(alertIndex);
+                            closeIFramweLayer();
                         })
                     }else{
                         layer.alert(res.msg,{
-                            icon:3,
-                            title:"错误提示"
+                            icon: 3,
+                            title:'错误提示'
                         })
                     }
                 }
-            )
+            })
         })
-        var closeIframeLayer=function(){
-            var iframLayerIndex=layer.getFrameIndex(window.name);
-            layer.close(iframLayerIndex)
+        var closeIFramweLayer=function () {
+            var layerInderx=layer.getFramIndex()
         }
-        $('#btn_Return').click(function(){
-            closeIframeLayer();
-        })
     })
+    //var studentId=getUrl("id");
+
+
+
 </script>
 </body>
 </html>
