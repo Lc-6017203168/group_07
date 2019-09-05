@@ -3,50 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <title></title>
-    <link rel="stylesheet" href="../layui/css/layui.css">
     <script src="../layui/layui.js"></script>
+    <link rel="stylesheet" href="../layui/css/layui.css">
     <link rel="stylesheet" href="../css/reset.css">
 </head>
 <body>
 <div class="layui-fluid">
     <div class="layui-card">
-        <div class="layui-card-header">学员添加</div>
+        <div class="layui-card-header">添加学员信息</div>
         <div class="layui-card-body">
-
             <div class="layui-form layui-form-pane">
 
                 <div class="layui-row layui-col-space10">
-
                     <div class="layui-col-xs6">
                         <div class="layui-form-item">
                             <lable class="layui-form-label" for="txt_studentName">
-                                <span class="required"></span>
-                                学员姓名：
+                                <span class="required">*</span>
+                                学员姓名
                             </lable>
                             <div class="layui-input-block">
-                                <input type="text" class="layui-input" name="studdentName" placeholder="请输入姓名" id="txt_studentName" lay-verify="required">
+                                <input type="text" placeholder="请输入学员姓名" class="layui-input" name="studentName" id="txt_studentName" lay-verify="required">
                             </div>
                         </div>
                     </div>
-
                     <div class="layui-col-xs6">
                         <div class="layui-form-item">
+
                             <lable class="layui-form-label" for="txt_studentNo">
-                                <span class="required"></span>
-                                学号：
+                                <span class="required">*</span>
+                                学号
                             </lable>
                             <div class="layui-input-block">
-                                <input type="text" class="layui-input" name="studentNo" placeholder="请输入学号" id="txt_studentNo" lay-verify="required">
+                                <input type="text" placeholder="请输入学号" class="layui-input" name="studentNo" id="txt_studentNo" lay-verify="required|number">
                             </div>
                         </div>
                     </div>
-
                     <div class="layui-col-xs6">
                         <div class="layui-form-item" pane>
-                            <label for="" class="layui-form-label">
-                                <span class="required"></span>
-                                性别：
-                            </label>
+
+                            <lable class="layui-form-label" for="">
+                                <span class="required">*</span>
+                                性别
+                            </lable>
                             <div class="layui-input-block">
                                 <input type="radio" name="gender" value="1" title="男" checked>
                                 <input type="radio" name="gender" value="2" title="女">
@@ -56,25 +54,30 @@
 
                     <div class="layui-col-xs6">
                         <div class="layui-form-item">
-                            <lable class="layui-form-label" for="txt_age">
-                                <span class="required"></span>
-                                年龄：
+
+                            <lable class="layui-form-label" for="">
+                                <span class="required">*</span>
+                                年龄
                             </lable>
                             <div class="layui-input-block">
-                                <input type="text" class="layui-input" name="age" id="txt_age" placeholder="请输入年龄" lay-verify="required">
+                                <input type="text" placeholder="请输入年龄" class="layui-input" name="age" id="txt_age" lay-verify="required|number|age" >
                             </div>
                         </div>
                     </div>
 
                     <div class="layui-col-xs6">
                         <div class="layui-form-item">
-                            <label for="" class="layui-form-label">所在班级：</label>
+                            <lable class="layui-form-label" for="cmb_Class">
+                                <span class="required">*</span>
+                                班级
+                            </lable>
                             <div class="layui-input-block">
-                                <select name="classId" id="cmb_Class" lay-verify="required">
-                                    <option value="">请选择...</option>
-                                    <option value="1">计算机一班</option>
-                                    <option value="2">计算机二班</option>
-                                    <option value="3">计算机三班</option>
+                                <select id="cmb_Class" name="classId" lay-verify="required" lay-filter="class">
+                                    <option value="">请输入...</option>
+                                    <!-- <option value="1">软件一班</option>
+                                     <option value="2">软件二班</option>
+                                     <option value="3">软件三班</option>
+                                     <option value="4">软件四班</option>-->
                                 </select>
                             </div>
                         </div>
@@ -82,22 +85,22 @@
 
                     <div class="layui-col-xs12">
                         <div class="layui-form-item layui-form-text">
-                            <label for="txt_introduce" class="layui-form-label">个人简介：</label>
+                            <lable class="layui-form-label" for="txt_introduce">个人简介：</lable>
                             <div class="layui-input-block">
-                                <textarea name="introduce" id="txt_introduce" class="layui-textarea" placeholder="个人简介，200字以内"></textarea>
+                                <textarea placeholder="个人简介(200字以内)" class="layui-textarea" name="introduce" id="txt_introduce"></textarea>
                             </div>
                         </div>
                     </div>
 
                     <div class="layui-col-xs2 layui-col-xs-offset8">
-                        <button type="button" class="layui-btn layui-btn-normal layui-btn-fluid">
+                        <button type="button" class="layui-btn layui-btn-normal layui-btn-fluid" id="btn_Return">
                             <i class="layui-icon layui-icon-close"></i>
                             返回
                         </button>
                     </div>
 
                     <div class="layui-col-xs2">
-                        <button class="layui-btn layui-btn-fluid">
+                        <button type="button" class="layui-btn layui-btn-fluid" lay-submit lay-filter="student" >
                             <i class="layui-icon layui-icon-ok"></i>
                             保存
                         </button>
@@ -107,9 +110,70 @@
             </div>
         </div>
     </div>
+
 </div>
 <script>
-    layui.use('form')
+    layui.use(['form','jquery','layer'],function () {
+        var form=layui.form,
+            layer=parent===self?layui.layer:top.layui.layer,
+            $=layui.$;
+
+        //自定义验证规则
+        form.verify({
+            age:function (value) {
+                if(value<18||value>24)
+                {
+                    return '年龄必须在18~24岁之间';
+                }
+            }
+        })
+        //初始化班级数据
+        $.get(
+            'http://140.143.186.38:8082/api/StudentClass',
+            function (res) {
+                //var $class=$('#cmb_Class')
+                for(i=0;i<res.length;i++)
+                {
+                    var option='<option value="'+res[i].value+'">'+res[i].text+'</option>';
+                    $('#cmb_Class').append(option)
+                }
+                //在追加节点以后需要重新渲染select
+                form.render('select')
+            }
+        )
+
+        //监听表单提交
+        form.on('submit(student)',function(object){
+            var data=object.field;
+            $.post(
+                'http://140.143.186.38:8082/api/Student',
+                data,
+                function(res){
+                    if(res.code===0){
+                        layer.alert(res.data,{
+                            icon:1,
+                            title:'信息提示'
+                        },function (alertIndex) {
+                            layer.close(alertIndex);//关闭提示窗口
+                            closeIframeLayer();//关闭iframe弹窗
+                        })
+                    }else{
+                        layer.alert(res.msg,{
+                            icon:3,
+                            title:"错误提示"
+                        })
+                    }
+                }
+            )
+        })
+        var closeIframeLayer=function(){
+            var iframLayerIndex=layer.getFrameIndex(window.name);
+            layer.close(iframLayerIndex)
+        }
+        $('#btn_Return').click(function(){
+            closeIframeLayer();
+        })
+    })
 </script>
 </body>
 </html>
