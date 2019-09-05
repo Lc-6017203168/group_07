@@ -1,0 +1,14 @@
+body{
+    background-color:#f4f4f4;
+}
+*{
+    margin: 0;
+    padding: 0;
+}
+.layui-fluid{
+    padding: 10px 15px;
+}
+.required{
+    color:#f56600;
+    font-size: 18px;
+}

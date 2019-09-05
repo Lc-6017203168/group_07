@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>菜品添加</title>
+    <script src="../layui/layui.js"></script>
+    <link rel="stylesheet" href="../layui/css/layui.css">
+    <link rel="stylesheet" href="../css/reset.css">
+
+</head>
+<body>
+<div class="layui-fluid">
+    <div class="layui-card">
+        <div class="layui-card-header">添加菜品信息</div>
+        <div class="layui-card-body">
+            <div class="layui-form layui-form-pane">
+
+                <div class="layui-row layui-col-space10">
+
+                    <div class="layui-col-xs6">
+                        <div class="layui-form-item">
+                            <lable class="layui-form-label" for="txt_studentName">
+                                <span class="required">*</span>
+                                菜品名称</lable>
+                            <div class="layui-input-block">
+                                <input type="text" placeholder="请输入菜品名称" class="layui-input" name="studentName" id="txt_studentName" lay-verify="required" >
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="layui-col-xs6">
+                        <div class="layui-form-item">
+                            <lable class="layui-form-label" for="txt_studentNo">
+                                <span class="required">*</span>
+                                价格</lable>
+                            <div class="layui-input-block">
+                                <input type="text" placeholder="请输入价格" class="layui-input" name="studentNo" id="txt_studentNo" lay-verify="required|number|age">
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="layui-col-xs6">
+                        <div class="layui-form-item">
+                            <lable class="layui-form-label" for="">
+                                <span class="required">*</span>
+                                会员价</lable>
+                            <div class="layui-input-block">
+                                <input type="text" placeholder="请输入会员价" class="layui-input" name="age" id="txt_age" lay-verify="required|number|age">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="layui-col-xs6">
+                        <div class="layui-form-item">
+                            <lable class="layui-form-label" for="cmb_Class">
+                                <span class="required">*</span>
+                                类别</lable>
+                            <div class="layui-input-block">
+                                <select id="cmb_dish" name="classId" lay-verify="required" >
+                                    <option value="">请输入...</option>
+                              </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="layui-col-xs2 layui-col-xs-offset8">
+                        <button type="button" class="layui-btn layui-btn-normal layui-btn-fluid" id="btn_Return" >
+                            <i class="layui-icon layui-icon-close"></i>
+                            返回
+                        </button>
+                    </div>
+
+                    <div class="layui-col-xs2">
+                        <button type="button" class="layui-btn layui-btn-fluid"  lay-submit lay-filter="dish">
+                            <i class="layui-icon layui-icon-ok"></i>
+                            保存
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<script>
+    layui.use(['form','jquery'],function () {
+        var form=layui.form,
+            layer=parent===self?layui.layer:top.layui.layer,
+            $=layui.$;
+        //自定义验证规则
+        form.verify({
+            age:function (value) {
+                if(value<0||value>100){
+                    return '菜品单价必须在0~100';
+                }
+            },
+        })
+
+        $.get(
+            'http://140.143.186.38:8082/api/DishCategory',
+            function (res) {
+                debugger
+                for (i = 0; i < res.length; i++) {
+                    var option = '<option value="'+ res[i].value + '">' + res[i].text + '</option>';
+                    $('#cmb_dish').append(option)
+                }
+                //在追加节点后，需要重新渲染select
+                form.render('select')
+            })
+
+        //监听表单提交
+        form.on('submit(dish)',function (object) {
+            var data=object.field;
+            $.post(
+                'http://140.143.186.38:8082/api/Dish',
+                data,
+                function (res) {
+                    if(res.code===0){
+                        layer.alert(res.data,{
+                            icon:1,
+                            title: '信息提示'
+                        },function (alertIndex) {
+                            layer.close(alertIndex);//关闭提示弹窗
+                            closeIframeLayer();//关闭iframe弹窗
+                        })
+                    }else{
+                        layer.alert(res.msg,{
+                            icon:3,
+                            title: '错误提示'
+                        })
+                    }
+                }
+            )
+        })
+        var closeIframeLayer=function () {
+            var iframLayerIndex=layer.getFrameIndex(window.name);
+            layer.close(iframLayerIndex)
+        }
+        $('#btn_Return').click(function () {
+            closeIframeLayer();
+        })
+
+    })
+</script>
+</body>
+</html>
