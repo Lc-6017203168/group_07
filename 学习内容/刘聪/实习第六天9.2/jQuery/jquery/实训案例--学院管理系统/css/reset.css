@@ -5,3 +5,10 @@ body{
     margin:0;
     padding:0;
 }
+.layui-fluid{
+    padding: 10px 15px;
+}
+.required{
+    color: #eb7350;
+    font-size: 18px;
+}
