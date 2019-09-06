@@ -21,16 +21,22 @@
 
                 <!--                放置添加按钮-->
                 <div class="layui-col-xs1 layui-col-xs-offset11">
-                    <button class="layui-btn layui-btn-fluid" id="btn_Add">
+
+                    <button type="button" class="layui-btn layui-btn-fluid" id="btn_Add">
+                        <i class="layui-icon ">&#xe608;</i> 添加
+                    </button>
+
+                    <!--<button class="layui-btn layui-btn-fluid" id="btn_Add">
                         <i class="layui-icon layui-icon-add-1"></i>
                         添加
-                    </button>
+                    </button>-->
 
                 </div>
 
 
                 <div class="layui-col-xs12">
 <!--                    lay-filter属性是为了做识别-->
+                   <!-- 在页面放置一个元素 <table id="demo"></table>，然后通过 table.render() 方法指定该容器-->
                     <table id="data_Student" lay-filter="student"></table>
 
                 </div>
@@ -335,7 +341,7 @@
             {
                 layer.open({
                     type:2 ,//表示弹出框为iframe
-                    content:'studentUpdata.html',
+                    content:'studentUpdata.html?id='+data.id,
                     area:['960px','640px'],//弹出框的大小
                     title:'修改学员信息'
                 })
