@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../layui/css/layui.css">
+    <script src="../layui/layui.js"></script>
+</head>
+<body>
+<div class="layui-fluid">
+    <!--    layui卡片-->
+    <div class="card">
+        <div class="layui-card-header">菜单列表</div>
+        <div class="layui-card-body">
+            <div class="layui-row layui-col-space10">
+
+                <!--                放置添加按钮-->
+                <div class="layui-col-xs1 layui-col-xs-offset10">
+                    <button class="layui-btn layui-btn-fluid" id="btn_add">
+                        <i class="layui-icon layui-icon-add-1"></i>
+                        添加菜品
+                    </button>
+                </div>
+
+                <div class="layui-col-xs12">
+                    <table id="data_Dish" lay-filter="dish"></table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/html" id="tpl_Operate">
+    <div class="layui-btn-group">
+        <button class="layui-btn layui-btn-xs layui-btn-primary" lay-event="view">
+            <i class="layui-icon layui-icon-camera"></i>查看菜品
+        </button>
+        <button class="layui-btn layui-btn-xs layui-btn-warm" lay-event="update">
+            <i class="layui-icon layui-icon-edit"></i>修改菜品
+        </button>
+        <button class="layui-btn layui-btn-xs layui-btn-danger" lay-event="delete">
+            <i class="layui-icon layui-icon-delete"></i>删除菜品
+        </button>
+    </div>
+</script>
+
+<script>
+    layui.use(['table','jquery','layer'],function () {
+        var table=layui.table;
+        $=layui.$;
+        layer=parent===self?layui.layer:top.layui.layer;
+        //初始化数据（从后台远程加载）
+
+        table.render({
+            elem:'#data_Dish',//需要动态渲染的DOM元素
+            url:"http://140.143.186.38:8082/api/Dish",//获取数据的连接
+            page:true,
+            cols:[[
+                // {field:'dishId',title:"菜单编号",width:'7%',align:'center'},
+                {
+                    field:'dishName',//绑定需要显示的字段
+                    title:'菜名',//表示显示的标题
+                    width:'10%',//宽度（px，%）
+                    align:'center'//对其方式
+                },
+                {field:'unitPrice',title:"价格",width:'7%',align:'center'},
+                {field:'memberPrice',title:"会员价",width:'7%',align:'center'},
+                {field:'categoryName',title:"类别",width:'15%',align:'center'},
+                {title:'操作',toolbar:'#tpl_Operate', align:'center'}//最后一行不需要指定宽度，自动填充剩余的
+            ]]
+        });
+        // 工具栏的点击事件
+        table.on('tool(dish)',function (object) {
+            var event = object.event;
+            var data = object.data;
+           // 确定是否点击删除按钮
+            if (event === 'delete') {
+
+                            layer.confirm('确定要输出',
+                                {
+                                    title: '信息信息',
+                                    icon: 3
+                                },
+                                function (layerIndex) {
+
+                                    layer.close(layerIndex);
+                                    $.ajax({
+                                        url:'http://140.143.186.38:8082/api/Dish/'+data.id,
+                                        type:'DELETE',
+                                        success:function (res) {
+                                            if (res.code === 0) {
+                                                layer.alert(res.data, {
+                                                    icon: 1,
+                                                    title: '信息提示'
+                                                },function (alertIndex) {
+                                                    layer.close(alertIndex);
+                                                    refreshTable();
+                                                })
+                                            } else {
+                                                layer.alert(res.msg, {
+                                                    icon: 2,
+                                                    title: '错误提示'
+                                                })
+                                            }
+                                        }
+                                    })
+
+
+                    })
+            }
+        })
+            //添加
+        $('#btn_add').click(function () {
+            layer.open({
+                type:2,//弹出框为iframe
+                content:"dish_add.html",
+                area:['960px','640px'],
+                title:'菜品添加',
+                //弹窗关闭销毁时调用
+                end:function () {
+                    refreshTable();
+                }
+            })
+        })
+    })
+
+
+ </script>
+</body>
+</html>
