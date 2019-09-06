@@ -1,0 +1,10 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+dody{
+    background-color: #f4f4f4;
+}
+.layui-fluid{
+    padding: 10px 15px;
+}

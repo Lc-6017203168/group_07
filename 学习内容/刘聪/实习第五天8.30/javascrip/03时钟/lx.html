@@ -4,13 +4,17 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <script>
-        var mytime=new Date();
-        var Month=mytime.getMonth()+1
-        var str=mytime.getFullYear()+"年"+Month+"月"+mytime.getDate();
-        document.write(str);
+        function mydate() {
+            var mytime=new Date();
+            var Month=mytime.getMonth()+1
+            var str=mytime.getFullYear()+"年"+Month+"月"+mytime.getDate();
+            document.write(str);
+        }
+        var test=setInterval("mydate()",);
     </script>
 </head>
 <body>
-<p>今天的时间</p>
+<!--<p>今天的时间</p>-->
+<div id="mydate"></div>
 </body>
 </html>
