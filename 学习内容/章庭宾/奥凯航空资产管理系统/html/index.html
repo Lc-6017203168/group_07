@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>奥凯航空资产管理</title>
+    <link rel="stylesheet" href="../layui/css/layui.css">
+    <link rel="stylesheet" href="../css/reset.css">
+    <script src="../layui/layui.js"></script>
+    <link rel="stylesheet" href="../css/website.css">
+</head>
+<body class="layui-layout-body">
+<div class="layui-layout-admin">
+
+    <div class="layui-header">
+        <div class="layui-title">
+            奥凯航空
+            <span class="layui-title-desc">资产管理系统</span>
+        </div>
+        <div class="layui-layout-right">
+            <ul class="layui-nav">
+                <li class="layui-nav-item">
+                    <div id="myclock"></div>
+                </li>
+                <li class="layui-nav-item">
+                    <a href="javascript:;">
+                        <img src="../image/01.jpg" height="32" width="32" class="layui-nav-img"/>
+                        章庭宾
+                    </a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="javascript:;">基本资料</a></dd>
+                        <dd><a href="javascript:;">修改密码</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item">
+                    <a href="javascript:;">
+                        <i class="layui-icon layui-icon-release"></i>
+                        退出登录
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="layui-side layui-bg-black">
+        <ul class="layui-nav layui-nav-tree">
+            <li class="layui-nav-item layui-nav-itemed">
+                <a href="javascript:;">
+                    <i class="layui-icon layui-icon-template-1"></i>
+                    基础信息管理
+                </a>
+                <dl class="layui-nav-child">
+                    <dd>
+                        <a href="role.html"target="iframe_Content">角色管理</a>
+                    </dd>
+                    <dd><a href="javascript:;">用户管理</a></dd>
+                </dl>
+            </li>
+            <li class="layui-nav-item layui-nav-itemed">
+                <a href="javascript:;">
+                    <i class="layui-icon layui-icon-rmb"></i>
+                    资产信息管理
+                </a>
+                <dl class="layui-nav-child">
+                    <dd><a href="javascript:;">普通资产管理</a></dd>
+                    <dd><a href="javascript:;">金融资产管理</a></dd>
+                    <dd><a href="javascript:;">车辆资产管理</a></dd>
+                    <dd><a href="javascript:;">不动资产管理</a></dd>
+                </dl>
+            </li><li class="layui-nav-item layui-nav-itemed">
+            <a href="javascript:;">
+                <i class="layui-icon layui-icon-link"></i>
+                资产流转管理
+            </a>
+            <dl class="layui-nav-child">
+                <dd><a href="javascript:;">普通资产留转管理</a></dd>
+                <dd><a href="javascript:;">金融资产留转管理</a></dd>
+                <dd><a href="javascript:;">车辆资产留转管理</a></dd>
+                <dd><a href="javascript:;">不动资产留转管理</a></dd>
+            </dl>
+        </li>
+        </ul>
+    </div>
+
+    <div class="layui-footer">
+        奥凯航空--天津大学仁爱学院
+    </div>
+
+    <div class="layui-body" style="overflow: hidden">
+        <iframe src="" frameborder="0" name="content" style="height: 100%;width: 100%"></iframe>
+    </div>
+</div>
+<script>
+    layui.use(['element','layer'])
+</script>
+</body>
+</html>
+<script>
+    // document.write("北京时间：");
+    function mytime()
+    {
+        var now =new Date();
+        var hh=now.getHours();
+        var mm=now.getMinutes();
+        var ss=now.getSeconds();
+        document.getElementById("myclock").innerHTML=hh+" : "+mm+" : "+ss;
+    }
+    var test=setInterval("mytime()",1000);
+</script>
