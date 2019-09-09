@@ -2,9 +2,9 @@
     margin: 0;
     padding:0;
 }
-bady{
+body{
     background-color: #f4f4f4;
 }
 .layui-fluid{
-    padding:10px 15px ;
+    padding:10px 15px;
 }

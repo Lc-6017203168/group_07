@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../layui/css/layui.css">
+    <link rel="stylesheet" href="../CSS/resit.css">
+    <script src="../layui/layui.js"></script>
+    <script src="../JS/url.js"></script>
+<body>
+<div class="layui-fluid">
+    <div class="layui-card">
+        <div class="layui-card-header">编辑角色信息</div>
+        <div class="layui-card-body">
+            <div class="layui-form layui-form-pane" lay-filter="role">
+                <input type="hidden" name="roleId">
+                <div class="layui-row layui-col-space10">
+
+                    <div class="layui-col-xs6">
+                        <div class="layui-form-item">
+                            <lable class="layui-form-label" for="txt_roleId">
+                                <span class="required">*</span>
+                                编号</lable>
+                            <div class="layui-input-block">
+                                <input type="text" placeholder="请输入角色编号" class="layui-input" name="roleId" id="txt_roleId" lay-verify="required|number" >
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="layui-col-xs6">
+                        <div class="layui-form-item">
+                            <lable class="layui-form-label" for="txt_roleName">
+                                <span class="required">*</span>
+                                姓名</lable>
+                            <div class="layui-input-block">
+                                <input type="text" placeholder="请输入名字" class="layui-input" name="roleName" id="txt_roleName" lay-verify="required">
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="layui-col-xs6">
+                        <div class="layui-form-item">
+                            <lable class="layui-form-label" for="">
+                                <span class="required">*</span>
+                                密码</lable>
+                            <div class="layui-input-block">
+                                <input type="text" placeholder="请输入密码" class="layui-input" name="code" id="txt_code" lay-verify="required|number">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="layui-col-xs12">
+                        <div class="layui-form-item layui-form-text">
+                            <lable class="layui-form-label" for="txt_introduce">备注</lable>
+                            <div class="layui-input-block">
+                                <textarea placeholder="请添加备注" class="layui-textarea" name="descriptio" id="txt_descriptio"></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="layui-col-xs2 layui-col-xs-offset8">
+                        <button type="button" class="layui-btn layui-btn-normal layui-btn-fluid" id="btn_Return" >
+                            <i class="layui-icon layui-icon-close"></i>
+                            返回
+                        </button>
+                    </div>
+
+                    <div class="layui-col-xs2">
+                        <button type="button" class="layui-btn layui-btn-fluid"  lay-submit lay-filter="role">
+                            <i class="layui-icon layui-icon-ok"></i>
+                            保存
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<script>
+    layui.use(['form','jquery','layer'],function () {
+        var form=layui.form;
+        layer=parent===self?layui.layer:top.layui.layer,
+            $=layui.$;
+
+        $.get(
+            'http://140.143.186.38:8088/api/Role',
+            function (res) {
+                form.render('select')
+                var roleId=getUrl("id");
+                $.get(
+                    'http://140.143.186.38:8088/api/Role/'+roleId,
+                    function (res) {
+                        form.val('role',{
+                            "roleId":res.data.roleId,
+                            "roleName":res.data.roleName,
+                            "code":res.data.code,
+                            "description":res.data.description,
+                        })
+                    }
+                )
+            })
+
+        //角色编辑表单提交
+        form.on('submit(role)',function (object) {
+            var data=object.filed;
+            $.ajax({
+                url:'http://140.143.186.38:8088/api/Role',
+                type:'PUT',
+                success:function (res) {
+                    if(res.code===0){
+                        layer.alert(res.data,{
+                            icon:1,
+                            title:'信息提示'
+                        },function (alerIndex) {
+                            layer.close(alerIndex);//关闭提示弹窗
+                            closeIframeLayer();//关闭iframe弹窗
+                        })
+                    }else{
+                        layer.alert(res.msg,{
+                            icon:3,
+                            title: '错误提示'
+                        })
+                    }
+                }
+            })
+        })
+        var closeIframeLayer=function () {
+            var LayerIndex=layer.getFrameIndex(window.name);
+            layer.close(LayerIndex)
+        }
+        $('#btn_Return').click(function () {
+            closeIframeLayer();
+        })
+
+    })
+
+</script>
+</body>
+</html>

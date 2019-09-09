@@ -9,14 +9,14 @@
 <body>
 <div class="layui-fluid">
     <!--    layui卡片-->
-    <div class="card">
+    <div class="layui-card">
         <div class="layui-card-header">角色管理列表</div>
         <div class="layui-card-body">
             <!--结构格栅化布局完成页面布局-->
             <div class="layui-row layui-col-space10">
 
                 <!--                放置添加按钮-->
-                <div class="layui-col-xs1 layui-col-xs-offset11">
+                <div class="layui-col-xs1 layui-col-xs-offset10">
                     <button class="layui-btn layui-btn-fluid" id="btn_add">
                         <i class="layui-icon layui-icon-add-1"></i>
                         添加
@@ -24,73 +24,45 @@
                 </div>
                 <div class="layui-col-xs12">
                     <!--                    lay-filter属性是为了识别-->
-                    <table id="data_Student" lay-filter="student"></table>
+                    <table id="data_Role" lay-filter="role"></table>
                 </div>
 
             </div>
         </div>
     </div>
 </div>
-<script type="text/html" id="tpl_Operate">
-    <div class="layui-btn-group">
-        <button class="layui-btn layui-btn-xs layui-btn-primary" lay-event="view">
-            <i class="layui-icon layui-icon-camera"></i>查看
-        </button>
-        <button class="layui-btn layui-btn-xs layui-btn-warm" lay-event="update">
-            <i class="layui-icon layui-icon-edit"></i>编辑
-        </button>
-        <button class="layui-btn layui-btn-xs layui-btn-danger" lay-event="delete">
-            <i class="layui-icon layui-icon-delete"></i>删除
-        </button>
-    </div>
-</script>
-<script>
 
+<script>
     layui.use(['table','jquery','layer'],function () {
         //初始化动态js组件，为了调用其中的方法
         var table=layui.table;
         $=layui.$;
         layer=parent===self?layui.layer:top.layui.layer;
-        //初始化学生数据（从后台远程加载）
+
         table.render({
-            elem:'#data_Student',//需要动态渲染的DOM元素
-            url:"http://140.143.186.38:8082/api/Student",//获取数据的连接
+            elem:'#data_Role',//需要动态渲染的DOM元素
+            url:"http://140.143.186.38:8088/api/Role",//获取数据的连接
             page:true,
             cols:[[
                 {
-                    field:'studentName',//绑定需要显示的字段
-                    title:'姓名',//表示显示的标题
+                    field:'roleId',//绑定需要显示的字段
+                    title:'编号',//表示显示的标题
                     width:'10%',//宽度（px，%）
                     align:'center'//对其方式
                 },
-                {field:'studentNo',title:'学号',width:'10%',align:'center'},
-                {field:'age',title:"年龄",width:'7%',align:'center'},
-                {title:"性别",width:'7%',align:'center', templet:function (data) {
-                        var gender=data.gender;
-                        var htmlStr='';
-                        switch(gender) {
-                            case 1:
-                                htmlStr = '<div style="color:cornflowerblue "><i class="layui-icon layui-icon-male"></i>男</div>'
-                                break;
-                            case 2:
-                                htmlStr = '<div style="color:deeppink "><i class="layui-icon layui-icon-female"></i>女</div>'
-                                break;
-                        }
-                        return htmlStr;
-                    }},
-                {field:'className',title:"所在班级",width:'15%'},
-                {field:'introduce',title:"个人简历",width:'30%'},
+                {field:'roleName',title:'管理员',width:'10%',align:'center'},
+                {field:'code',title:"密码",width:'7%',align:'center'},
+                {field:'description',title:"注释",width:'15%'},
                 {title:'操作',toolbar:'#tpl_Operate', align:'center'}//最后一行不需要指定宽度，自动填充剩余的
             ]]
         });
         //工具栏的点击事件
-        table.on('tool(student)',function (object) {
+        table.on('tool(role)',function (object) {
             var event = object.event;
             var data = object.data;
             //确定是否点击删除按钮
             if (event === 'delete') {
-
-                layer.confirm('确定要输出这名学员吗？',
+                layer.confirm('确定要输出这个角色吗？',
                     {
                         title: '信息信息',
                         icon: 3
@@ -99,7 +71,7 @@
                         //layuerIndex是弹出层的索引，关闭弹窗时候用的到
                         layer.close(layerIndex);
                         $.ajax({
-                            url:'http://140.143.186.38:8082/api/Student/'+data.id,
+                            url:'http://140.143.186.38:8088/api/Role/'+data.roleId,
                             type:'DELETE',
                             success:function (res) {
                                 if (res.code === 0) {
@@ -118,37 +90,35 @@
                                 }
                             }
                         })
-
-
                     })
             }
-            //查看学员
+            //查看角色
             if(event==='view'){
                 // layer.open()直接弹出页面
                 layer.open({
                     type:2,//弹出框为iframe
-                    content:"student_view.html",
+                    content:"role_up.html?roleId="+data.roleId,
                     area:['960px','640px'],
-                    title:'学员详细信息查看'
+                    title:'角色详细信息查看'
                 })
             }
             //编辑学员
             if(event==='update'){
                 layer.open({
                     type:2,//弹出框为iframe
-                    content:"student_update.html?id="+data.id,
+                    content:"role_up.html?roleId="+data.roleId,
                     area:['960px','640px'],
-                    title:"学员信息编辑"
+                    title:"角色信息编辑"
                 })
             }
         })
-        //添加学员
+        //添加角色
         $('#btn_add').click(function () {
             layer.open({
                 type:2,//弹出框为iframe
-                content:"student_add.html",
+                content:"role_ad.html",
                 area:['960px','640px'],
-                title:'学员添加',
+                title:'角色添加',
                 //弹窗关闭销毁时调用
                 end:function () {
                     refreshTable();
@@ -158,6 +128,18 @@
     })
 
 </script>
-
+<script type="text/html" id="tpl_Operate">
+    <div class="layui-btn-group">
+        <button class="layui-btn layui-btn-xs layui-btn-primary" lay-event="view">
+            <i class="layui-icon layui-icon-camera"></i>查看
+        </button>
+        <button class="layui-btn layui-btn-xs layui-btn-warm" lay-event="update">
+            <i class="layui-icon layui-icon-edit"></i>编辑
+        </button>
+        <button class="layui-btn layui-btn-xs layui-btn-danger" lay-event="delete">
+            <i class="layui-icon layui-icon-delete"></i>删除
+        </button>
+    </div>
+</script>
 </body>
 </html>
