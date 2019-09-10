@@ -50,9 +50,12 @@
                 </a>
                 <dl class="layui-nav-child">
                     <dd>
-                        <a href="role.html"target="iframe_Content">角色管理</a>
+                        <a href="role.html" target="iframe_Content">
+                            <i class="layui-icon layui-icon-user"></i>
+                            角色管理
+                        </a>
                     </dd>
-                    <dd><a href="javascript:;">用户管理</a></dd>
+                    <dd><a href="./user/user.html" title="main_Content">用户管理</a></dd>
                 </dl>
             </li>
             <li class="layui-nav-item layui-nav-itemed">
@@ -86,14 +89,16 @@
     </div>
 
     <div class="layui-body" style="overflow: hidden">
-        <iframe src="" frameborder="0" name="content" style="height: 100%;width: 100%"></iframe>
+        <iframe src="" frameborder="0" name="main_Content" style="height: 100%;width: 100%"></iframe>
     </div>
 </div>
 <script>
     layui.use(['element','layer'])
 </script>
+
 </body>
 </html>
+
 <script>
     // document.write("北京时间：");
     function mytime()
