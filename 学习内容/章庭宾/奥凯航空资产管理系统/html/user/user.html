@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>奥凯航空用户管理</title>
+    <link rel="stylesheet" href="../../layui/css/layui.css">
+    <link rel="stylesheet" href="../../css/reset.css">
+    <script src="../../layui/layui.js"></script>
+</head>
+<body>
+<div class="layui-fluid">
+    <div class="layui-card">
+        <div class="layui-card-header">用户管理</div>
+        <div class="layui-card-body">
+
+            <div class="layui-row layui-col-space10">
+
+                <div class="layui-col-xs10">
+
+                    <div class="layui-form layui-form-pane">
+                        <div class="layui-row layui-col-space10">
+                            <div class="layui-col-xs5">
+                                <div class="layui-form-item">
+                                    <label class="layui-form-label"> 用户角色</label>
+                                    <div class="layui-input-block">
+                                        <select name="roleId" id="cmb_Role">
+                                            <option value="">请选择</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="layui-col-xs5">
+                                <div class="layui-form-item">
+                                    <label for="txt_UserName" class="layui-form-label">用户名</label>
+                                    <div class="layui-input-block">
+                                        <input type="text" class="layui-input" name="userName" autocomplete="off" id="txt_UserName" placeholder="请输入用户名">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="layui-col-xs2">
+                                <button class="layui-btn layui-btn-normal layui-btn-fluid" id="btn_Query">
+                                    <i class="layui-icon layui-icon-search"></i>查询
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="layui-col-xs1 layui-col-xs-offset1">
+
+                    <button type="button" class="layui-btn layui-btn-fluid" id="btn_Add">
+                        <i class="layui-icon layui-icon-add-1"></i>
+                        添加
+                    </button>
+                </div>
+
+                <div class="layui-col-xs12">
+                    <table id="data_User"></table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/html" id="tpl_Operate">
+    <div class="layui-btn-group">
+        <button class="layui-btn layui-btn-warm layui-btn-xs" lay-event="update">
+            <i class="layui-icon layui-icon-edit"></i>编辑
+        </button>
+        <button class="layui-btn layui-btn-danger layui-btn-xs" lay-event="delete">
+            <i class="layui-icon layui-icon-delete" ></i>删除
+        </button>
+    </div>
+</script>
+<script>
+    layui.use(['form','table','layer','jquery'],function (){
+        var form=layui.form;
+        var table=layui.table,
+            $=layui.$,
+            layer=self===parent?layui.layer:top.layui.layer;
+        //初始化表格数据
+        table.render({
+            elem:'#data_User',
+            page:true,
+            url:'http://140.143.186.38:8088/api/User',
+            cols:[[
+                {field:'nickName',title:'昵称',width:'15%'},
+                {field:'loginName',title:'登录名',width:'10%'},
+                {field:'trueName',title:'真实姓名',width:'10%'},
+                {field:'age',title:'年龄',align:'center',sort:'true', width:'8%'},
+                {flied:'gender',title:'性别',width:'8%',align:'center',templet:function(data){
+                    var gender=data.gender,
+                    htmlStr;
+                    switch (gender) {
+                        case 1:
+                            htmlStr='<div style="color:blue"><i class="layui-icon layui-icon-male"></i>男</div>>'
+                            break;
+                        case 2:
+                            htmlStr='<div style="color:pink"><i class="layui-icon layui-icon-male"></i>女</div>>'
+                            break;
+                    }
+                    return htmlStr;
+                    }},
+                {field:'isActive',title:'状态',width:'8%',align:'center',templet:function (data) {
+                        var staus=data.isActive;
+                        if(staus){
+                            return'正常';
+                        }else{
+                            return'禁用';
+                        }
+                    }},
+                {field:'registerTime',title:'注册时间',width:'15%',align:'center'},
+                {field:'roleName',title:'角色名称',width:'15%'},
+                {title:'操作',align:'center',toolbar:'#tpl_Operate'}
+            ]]
+        });
+
+        //初始化角色数据
+        $.get('http://140.143.186.38:8088/api/UserRole',function(res){
+            var $role=$('#cmb_Role');
+            for(i=0;i<res.length;i++){
+                var option='<option value="'+res[i].value+'">'+res[i].text+'</option>';
+                $role.append(option);
+            }
+            form.render('select')
+        })
+        //查询点击事件
+        $('#btn_Query').click(function(){
+            //重载表格
+            table.reload('data_User',{
+                where:{
+                    roleId:$('#cmb_Role').val(),
+                    userName:$('#txt_UserName').val()
+                }
+            })
+        })
+        $('#btn_Add').click(function () {
+            layer.open({
+                type:2,
+                content:'userAdd.html',
+                title:'用户添加',
+                area:['720px','560px']
+            })
+        })
+    })
+</script>
+</body>
+</html>

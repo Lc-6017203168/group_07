@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户添加</title>
+    <link rel="stylesheet" href="../../layui/css/layui.css">
+    <script src="../../layui/layui.js"></script>
+    <link rel="stylesheet" href="../../css/reset.css">
+</head>
+<body>
+<div class="layui-card">
+    <div class="layui-card-header">添加新用户</div>
+    <div class="layui-card-body">
+
+        <div class="layui-form layui-form-pane">
+            <div class="layui-row layui-col-space10">
+
+                <div class="layui-col-xs6">
+                    <div class="layui-form-item">
+                        <label for="txt_nickName" class="layui-form-label">
+                            <span class="required"></span>用户昵称
+                        </label>
+                        <div class="layui-input-block">
+                            <input type="text" class="layui-input" name="nickName" id="txt_nickName" placeholder="请输入用户昵称" lay-verify="required">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="layui-col-xs6">
+                    <div class="layui-form-item">
+                        <label for="txt_loginName" class="layui-form-label">
+                            <span class="required"></span>登录名
+                        </label>
+                        <div class="layui-input-block">
+                            <input type="text" class="layui-input" name="loginName" id="txt_loginName" placeholder="请输入登录名" lay-verify="required">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="layui-col-xs6">
+                    <div class="layui-form-item">
+                        <label for="txt_trueName" class="layui-form-label">
+                            <span class="required"></span>真实姓名
+                        </label>
+                        <div class="layui-input-block">
+                            <input type="text" class="layui-input" name="trueName" id="txt_trueName" placeholder="请输入真实姓名" lay-verify="required">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="layui-col-xs6">
+                    <div class="layui-form-item" pane>
+                        <label class="layui-form-label">
+                            <span class="required"></span>用户性别
+                        </label>
+                        <div class="layui-input-block">
+                            <input type="radio" name="gender" title="男" value="1" lay-verify="required" checked>
+                            <input type="radio" name="gender" title="女" value="2" lay-verify="required" >
+                        </div>
+                    </div>
+                </div>
+
+                <div class="layui-col-xs6">
+                    <div class="layui-form-item">
+                        <label for="txt_age" class="layui-form-label">
+                            <span class="required"></span>年龄
+                        </label>
+                        <div class="layui-input-block">
+                            <input type="text" class="layui-input" name="age" id="txt_age" placeholder="请输入年龄" lay-verify="required|number">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="layui-col-xs6">
+                    <div class="layui-form-item" pane>
+                        <label class="layui-form-label">
+                            <span class="required"></span>用户状态
+                        </label>
+                        <div class="layui-input-block">
+                            <input type="checkbox" lay-skin="switch" name="isActive" value="true" lay-text="正常|禁用" checked>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="layui-col-xs6">
+                    <div class="layui-form-item">
+                        <label for="txt_registerTime" class="layui-form-label">
+                            <span class="required"></span>注册时间
+                        </label>
+                        <div class="layui-input-block">
+                            <input type="text" class="layui-input" name="registerTime" id="txt_registerTime" placeholder="yyyy/MM/dd" lay-verify="required">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="layui-col-xs6">
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">
+                            <span class="required"></span>用户角色
+                        </label>
+                        <div class="layui-input-block">
+                            <select name="roleId" id="cmb_Role">
+                                <option value="">请选择...</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="layui-col-xs2 layui-col-xs-offset8">
+                    <button type="button" class="layui-btn layui-btn-normal layui-btn-fluid" id="btn_Return">
+                        <i class="layui-icon layui-icon-close"></i>
+                        返回
+                    </button>
+                </div>
+                <div class="layui-col-xs2 ">
+                    <button class="layui-btn layui-btn-fluid" lay-submit lay-filter="user">
+                        <i class="layui-icon layui-icon-ok"></i>
+                        保存
+                    </button>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    layui.use('form')
+</script>
+</body>
+</html>
