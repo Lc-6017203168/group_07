@@ -17,6 +17,7 @@
                 <input type="hidden" name="studentId">
 
                 <div class="layui-row layui-col-space10">
+
                     <div class="layui-col-xs6">
                         <div class="layui-form-item">
                             <lable class="layui-form-label" for="txt_studentName">
@@ -24,10 +25,12 @@
                                 学员姓名
                             </lable>
                             <div class="layui-input-block">
-                                <input type="text" placeholder="请输入学员姓名" class="layui-input" name="studentName" id="txt_studentName" lay-verify="required">
+                                <input type="text" placeholder="请输入学员姓名" class="layui-input"
+                                       name="studentName" id="txt_studentName" lay-verify="required">
                             </div>
                         </div>
                     </div>
+
                     <div class="layui-col-xs6">
                         <div class="layui-form-item">
 
@@ -163,7 +166,7 @@
                             closeIframweLayer();
                         })
                     }else{
-                        layer.alert(res.meg,{
+                        layer.alert(res.msg,{
                             icon: 3,
                             title:'错误提示'
                         })
@@ -171,10 +174,14 @@
                 }
             })
         }
+
+
+
         var closeIframeLayer=function(){
             var iframLayerIndex=layer.getFrameIndex(window.name);
             layer.close(iframLayerIndex)
         }
+
     })
 
 </script>
