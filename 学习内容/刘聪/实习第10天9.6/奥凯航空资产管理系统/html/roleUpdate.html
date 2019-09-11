@@ -91,7 +91,7 @@
          $=layui.$,
          layer=parent===self?layui.layer:top.layui.layer;
 
-        //初始化班级下拉列表
+        //
         $.get(
         'http://140.143.186.38:8088/api/Role',
             function (res) {
@@ -110,11 +110,12 @@
                 )
             })
         //学员编辑表单提交
-        form.on('submint(role)',function (object) {
+        form.on('submit(role)',function (object) {
             var data=object.field;
             $.ajax({
                 url:'http://140.143.186.38:8088/api/Role',
                 type:'PUT',
+                data:data,
                 success:function(res){
                     if(res.code===0){
                         layer.alert(res.data,{
