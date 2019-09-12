@@ -51,8 +51,8 @@
                     align:'center'//对其方式
                 },
                 {field:'roleName',title:'管理员',width:'10%',align:'center'},
-                {field:'code',title:"密码",width:'7%',align:'center'},
-                {field:'description',title:"注释",width:'15%'},
+                {field:'code',title:"码",width:'7%',align:'center'},
+                {field:'description',title:"个人简介",width:'15%'},
                 {title:'操作',toolbar:'#tpl_Operate', align:'center'}//最后一行不需要指定宽度，自动填充剩余的
             ]]
         });
@@ -128,6 +128,7 @@
     })
 
 </script>
+//按键群
 <script type="text/html" id="tpl_Operate">
     <div class="layui-btn-group">
         <button class="layui-btn layui-btn-xs layui-btn-primary" lay-event="view">

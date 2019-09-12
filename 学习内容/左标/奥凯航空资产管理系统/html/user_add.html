@@ -125,6 +125,7 @@
 
 </div>
 <script>
+    /*//引用组件*/
     layui.use(['form','jquery','layer','laydate'],function () {
             var form=layui.form,
                 $=layui.$;
@@ -136,7 +137,7 @@
         laydate.render({
             elem:"#txt_registerTime"
         })
-
+//初始化用户数据
         $.get(
             'http://140.143.186.38:8088/api/UserRole',
             function (res) {
@@ -168,10 +169,12 @@
                 }
             )
         })
+        //关闭本页面
         var closeIframeLayer=function () {
             var iframLayerIndex=layer.getFrameIndex(window.name);
             layer.close(iframLayerIndex)
         }
+        //刷新列表
         $('#btn_Return').click(function () {
             closeIframeLayer();
         })

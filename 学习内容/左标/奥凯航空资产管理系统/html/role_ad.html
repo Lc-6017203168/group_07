@@ -44,18 +44,18 @@
                         <div class="layui-form-item">
                             <lable class="layui-form-label" for="">
                                 <span class="required">*</span>
-                                密码</lable>
+                                码</lable>
                             <div class="layui-input-block">
-                                <input type="text" placeholder="请输入密码" class="layui-input" name="code" id="txt_code" lay-verify="required|number">
+                                <input type="text" placeholder="请输入码" class="layui-input" name="code" id="txt_code" lay-verify="required|number">
                             </div>
                         </div>
                     </div>
 
                     <div class="layui-col-xs12">
                         <div class="layui-form-item layui-form-text">
-                            <lable class="layui-form-label" for="txt_introduce">备注</lable>
+                            <lable class="layui-form-label" for="txt_introduce">个人简介</lable>
                             <div class="layui-input-block">
-                                <textarea placeholder="请添加备注" class="layui-textarea" name="descriptio" id="txt_descriptio"></textarea>
+                                <textarea placeholder="个人简介（200字以内）" class="layui-textarea" name="descriptio" id="txt_descriptio"></textarea>
                             </div>
                         </div>
                     </div>
@@ -110,10 +110,13 @@
                 }
             )
         })
+        //关闭本窗口
         var closeIframeLayer=function () {
             var iframLayerIndex=layer.getFrameIndex(window.name);
             layer.close(iframLayerIndex)
         }
+
+        //刷新
         $('#btn_Return').click(function () {
             closeIframeLayer();
         })
