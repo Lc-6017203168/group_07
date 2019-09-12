@@ -149,7 +149,11 @@
                     type: 2,
                     content: 'roleUpdate.html?roleId=' + data.roleId,
                     area: ['960px', '640px'],
-                    title: '修改学员信息'
+                    title: '修改学员信息',
+                    //弹窗关闭销毁时调用
+                    end: function () {
+                        refreshTable();
+                    }
                 })
             }
         })

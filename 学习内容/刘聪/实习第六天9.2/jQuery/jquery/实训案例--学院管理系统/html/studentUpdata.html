@@ -156,6 +156,7 @@
             $.ajax({
                 url:'http://140.143.186.38:8082/api/Student',
                 type:'PUT',
+                data:data,
                 success:function(res){
                     if(res.code===0){
                         layer.alert(res.data,{
