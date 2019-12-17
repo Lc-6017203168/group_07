@@ -2,5 +2,9 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/feijidazhan" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/学习内容/刘聪/计算器-1" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/学习内容/刘聪/计算器0" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/学习内容/飞机大战" vcs="Git" />
   </component>
 </project>

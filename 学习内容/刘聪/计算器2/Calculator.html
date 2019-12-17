@@ -5,6 +5,13 @@
     <title>Title</title>
     <script>
         function insert(num) {
+        if(num=='π') {
+                document.form.textview.value = document.form.textview.value +Math.PI;
+            }
+        else if (num=='00'){
+                document.form.textview.value = document.form.textview.value +num;
+            }
+        else
                 document.form.textview.value = document.form.textview.value +num;
         }
 
@@ -31,7 +38,6 @@
             margin: 0;
             padding: 0;
         }
-
         .button {
             width: 60px;
             height: 50px;
@@ -45,6 +51,12 @@
         }
 
         .textview {
+            width: 243px;
+            margin: 5px;
+            font-size: 25px;
+            padding: 5px;
+        }
+        .textout {
             width: 243px;
             margin: 5px;
             font-size: 25px;
@@ -68,10 +80,11 @@
 </head>
 <html>
 <body >
-<img src="image/03.jpeg" height=50% width=100%/>
+<img src="image/04.jpg" height=50% width=100%/>
 <div class="bg"></div>
 <div class="main">
     <form name="form">
+
         <input class="textview" name="textview">
     </form>
     <table>
@@ -83,8 +96,8 @@
         </tr>
 
         <tr>
-            <td><input class="button" type="button" value="(" onclick="insert('(')"></td>
-            <td><input class="button" type="button" value=")" onclick="insert(')')"></td>
+            <td><input class="button" type="button" value="π" onclick="insert('π')"></td>
+            <td><input class="button" type="button" value="00" onclick="insert('00')"></td>
             <td><input class="button" type="button" value="%" onclick="insert('%')"></td>
             <td><input class="button" type="button" value="*" onclick="insert('*')"></td>
         </tr>
